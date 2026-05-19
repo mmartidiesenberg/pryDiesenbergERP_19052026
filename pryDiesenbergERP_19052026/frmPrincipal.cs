@@ -21,7 +21,7 @@ namespace pryDiesenbergERP_19052026
         {
             clsConexion con = new clsConexion();
             string cadena = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" +
-                AppDomain.CurrentDomain.BaseDirectory + @"Base de Datos\Diesenberg.accdb;";
+                            AppDomain.CurrentDomain.BaseDirectory + @"Base de Datos\Diesenberg.accdb;";
 
             if (con.Conectar(cadena))
             {
@@ -32,6 +32,7 @@ namespace pryDiesenbergERP_19052026
             {
                 lblEstado.Text = "No se pudo conectar la base de datos";
                 lblEstado.ForeColor = Color.Red;
+                MessageBox.Show(con.ERROR); // ← esto te muestra el error exacto
             }
         }
     }
