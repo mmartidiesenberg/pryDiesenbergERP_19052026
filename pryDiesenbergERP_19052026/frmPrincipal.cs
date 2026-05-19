@@ -16,5 +16,23 @@ namespace pryDiesenbergERP_19052026
         {
             InitializeComponent();
         }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            clsConexion con = new clsConexion();
+            string cadena = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" +
+                AppDomain.CurrentDomain.BaseDirectory + @"Base de Datos\Diesenberg.accdb;";
+
+            if (con.Conectar(cadena))
+            {
+                lblEstado.Text = "Base de datos conectada";
+                lblEstado.ForeColor = Color.Green;
+            }
+            else
+            {
+                lblEstado.Text = "No se pudo conectar la base de datos";
+                lblEstado.ForeColor = Color.Red;
+            }
+        }
     }
 }
