@@ -36,7 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(585, 427);
             this.Name = "frmPrincipal";
-            this.Text = "Principal";
+            this.Text = "Principal ERP";
             this.ResumeLayout(false);
 
         }
