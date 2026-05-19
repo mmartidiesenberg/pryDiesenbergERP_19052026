@@ -9,48 +9,43 @@ using System.Data.OleDb;
 
 namespace pryDiesenbergERP_19052026
 {
-    public class clsConexion
+    internal class clsConexion
     {
-        private string connectionString;
-
-        public clsConexion()
-        {
-            string ruta = AppDomain.CurrentDomain.BaseDirectory + @"BaseDatos\Diesenberg.accdb";
-            connectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={ruta};Persist Security Info=False;";
-        }
-
-        public OleDbConnection ObtenerConexion()
-        {
-            return new OleDbConnection(connectionString);
-        }
-
-        // Ejecutar consultas que no devuelven datos (INSERT, UPDATE, DELETE)
-        public int EjecutarComando(string sql, OleDbParameter[] parametros = null)
-        {
-            using (var conn = ObtenerConexion())
-            using (var cmd = new OleDbCommand(sql, conn))
+            public OleDbConnection CNN;
+            public string ERROR;
+            public bool Conectar(string cadena)
             {
-                if (parametros != null)
-                    cmd.Parameters.AddRange(parametros);
-
-                conn.Open();
-                return cmd.ExecuteNonQuery();
+                try
+                {
+                    CNN = new OleDbConnection(cadena);
+                    CNN.Open();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    ERROR = ex.Message;
+                    return false;
+                }
             }
-        }
-
-        // Obtener datos como DataTable
-        public DataTable ObtenerDatos(string sql, OleDbParameter[] parametros = null)
-        {
-            using (var conn = ObtenerConexion())
-            using (var cmd = new OleDbCommand(sql, conn))
-            using (var adapter = new OleDbDataAdapter(cmd))
+            public void Desconectar()
             {
-                if (parametros != null)
-                    cmd.Parameters.AddRange(parametros);
+                if (CNN != null && CNN.State == ConnectionState.Open)
+                    CNN.Close();
+            }
+            public DataTable Consultar(string sql)
+            {
+                DataTable tabla = new DataTable();
 
-                conn.Open();
-                var tabla = new DataTable();
-                adapter.Fill(tabla);
+                try
+                {
+                    OleDbDataAdapter da = new OleDbDataAdapter(sql, CNN);
+                    da.Fill(tabla);
+                }
+                catch (Exception ex)
+                {
+                    ERROR = ex.Message;
+                }
+
                 return tabla;
             }
         }
