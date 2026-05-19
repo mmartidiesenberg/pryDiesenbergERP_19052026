@@ -16,7 +16,7 @@ namespace pryDiesenbergERP_19052026
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPrincipal());
+            Application.Run(new frmInicioSesion());
         }
     }
 }
