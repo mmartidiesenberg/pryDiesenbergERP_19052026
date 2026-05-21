@@ -56,19 +56,19 @@
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inicio Sesión.cs">
+    <Compile Include="frmInicioSesion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inicio Sesión.Designer.cs">
-      <DependentUpon>Inicio Sesión.cs</DependentUpon>
+    <Compile Include="frmInicioSesion.Designer.cs">
+      <DependentUpon>frmInicioSesion.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inicio Sesión.resx">
-      <DependentUpon>Inicio Sesión.cs</DependentUpon>
+    <EmbeddedResource Include="frmInicioSesion.resx">
+      <DependentUpon>frmInicioSesion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -94,6 +94,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Base de Datos\Diesenberg.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Base de Datos\DiesenbergM.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="database_storage_server_connection_icon_190646.ico" />
