@@ -76,7 +76,5 @@ namespace pryDiesenbergERP_19052026
             if (!string.IsNullOrEmpty(clsConexion.ConexionBD.error)) MessageBox.Show("Error: " + clsConexion.ConexionBD.error);
 
         }
-
-        
     }
 }
