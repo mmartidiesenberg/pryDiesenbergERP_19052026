@@ -35,10 +35,31 @@ namespace pryDiesenbergERP_19052026
 
             if (tabla.Rows.Count > 0)
             {
-                frmPrincipal Principal = new frmPrincipal();
-                Principal.nombreUsuario = tabla.Rows[0]["Nombre"].ToString();
-                Principal.ShowDialog();
-                this.Close();
+
+                string usuario = tabla.Rows[0]["Gmail"].ToString();
+                string perfil = tabla.Rows[0]["Perfil"].ToString();
+
+                if (perfil == "Administrador")
+                {
+                    frmAdministrador Administrador = new frmAdministrador();
+                    Administrador.ShowDialog();
+                    this.Close();
+                }
+
+                else if (perfil == "Recursos Humanos")
+                {
+                    frmRRHH RecursosHumanos = new frmRRHH();
+                    RecursosHumanos.ShowDialog();
+                    this.Close();
+                }
+
+                else
+                {
+                    frmPrincipal Principal = new frmPrincipal();
+                    Principal.ShowDialog();
+                    this.Close();
+                }
+
             }
             else
             {
@@ -56,9 +77,6 @@ namespace pryDiesenbergERP_19052026
 
         }
 
-        private void gbInicio_Enter(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

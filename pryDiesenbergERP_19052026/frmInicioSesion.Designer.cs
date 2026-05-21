@@ -97,7 +97,6 @@
             this.gbInicio.TabIndex = 5;
             this.gbInicio.TabStop = false;
             this.gbInicio.Text = "Iniciar Sesión";
-            this.gbInicio.Enter += new System.EventHandler(this.gbInicio_Enter);
             // 
             // frmInicioSesion
             // 
