@@ -22,47 +22,43 @@ namespace pryDiesenbergERP_19052026
 
         private void frmInicioSesion_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            clsConexion.ConexionBD conexion = new clsConexion.ConexionBD();
+            clsConexion.ConexionBD.Conectar();
+            DataTable tabla = clsConexion.ConexionBD.Consultar("SELECT * FROM Usuario" +
+                         " WHERE Gmail = '" + txtUsuario.Text + "'" +
+                         " AND Contrasenia = '" + txtContrasenia.Text + "'");
 
-            string cadena = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Diesenberg.accdb";
-
-            conexion.Conectar(cadena);
-
-            DataTable tabla = conexion.Consultar(
-                "SELECT * FROM Usuarios WHERE Gmail = '" + txtUsuario.Text +
-                "' AND Contraseña = '" + txtContrasenia.Text + "'");
 
             if (tabla.Rows.Count > 0)
             {
                 frmPrincipal Principal = new frmPrincipal();
-
                 Principal.nombreUsuario = tabla.Rows[0]["Nombre"].ToString();
-                Principal.rolUsuario = tabla.Rows[0]["Perfil"].ToString();
-
                 Principal.ShowDialog();
-
                 this.Close();
             }
             else
             {
                 intentos--;
-
                 MessageBox.Show(
-                    "Usuario o Contraseña Incorrectos, Te Quedan "
-                    + intentos +
-                    " Intentos Disponibles"
+                    "Usuario o Contraseña Incorrectos. Te quedan " +
+                    intentos + " intentos disponibles."
                 );
-
                 if (intentos <= 0)
                 {
                     this.Close();
                 }
             }
+            if (!string.IsNullOrEmpty(clsConexion.ConexionBD.error)) MessageBox.Show("Error: " + clsConexion.ConexionBD.error);
+
+        }
+
+        private void gbInicio_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

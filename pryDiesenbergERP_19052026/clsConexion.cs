@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.OleDb;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
-using System.Data.OleDb;
 
 
 namespace pryDiesenbergERP_19052026
@@ -13,41 +14,55 @@ namespace pryDiesenbergERP_19052026
     {
         public class ConexionBD
         {
-            public OleDbConnection CNN;
-            public string ERROR;
-            public bool Conectar(string cadena)
+            public static OleDbConnection conexion;
+            public static string error;
+            public static bool Conectar()
             {
+                string ruta = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Base de Datos", "Diesenberg.accdb");
+                string cadena = "Provider=Microsoft.ACE.OLEDB.16.0;Data Source=" + ruta;
+
                 try
                 {
-                    CNN = new OleDbConnection(cadena);
-                    CNN.Open();
+                    conexion = new OleDbConnection(cadena);
+                    conexion.Open();
                     return true;
                 }
                 catch (Exception ex)
                 {
-                    ERROR = ex.Message;
+                    error = ex.Message;
                     return false;
                 }
             }
-
-            public void Desconectar()
+            public static void Desconectar()
             {
-                if (CNN != null && CNN.State == ConnectionState.Open)
-                CNN.Close();
+                if (conexion != null && conexion.State == ConnectionState.Open) conexion.Close();
             }
-            public DataTable Consultar(string sql)
+            public static DataTable Consultar(string sql)
             {
                 DataTable tabla = new DataTable();
                 try
                 {
-                    OleDbDataAdapter da = new OleDbDataAdapter(sql, CNN);
+                    OleDbDataAdapter da = new OleDbDataAdapter(sql, conexion);
                     da.Fill(tabla);
                 }
                 catch (Exception ex)
                 {
-                    ERROR = ex.Message;
+                    error = ex.Message;
                 }
                 return tabla;
+            }
+            public static void AuditarSesion(string usuario, bool acceso)
+            {
+                try
+                {
+                    string sql = "INSERT INTO AuditoriaInicioSesion (Usuario, FechayHora, IntentoFallido) " + "VALUES ('" + usuario + "', '" + DateTime.Now.ToString() + "', " + acceso + ")";
+                    OleDbCommand cmd = new OleDbCommand(sql, conexion);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    error = ex.Message;
+                }
             }
         }
     }

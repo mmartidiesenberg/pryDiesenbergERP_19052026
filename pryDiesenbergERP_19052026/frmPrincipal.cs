@@ -22,30 +22,19 @@ namespace pryDiesenbergERP_19052026
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            clsConexion.ConexionBD con = new clsConexion.ConexionBD();
-
-            string cadena = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" +
-                            AppDomain.CurrentDomain.BaseDirectory +
-                            @"Base de Datos\Diesenberg.accdb;";
-
-            if (con.Conectar(cadena))
+            if (clsConexion.ConexionBD.Conectar())
             {
                 lblEstado.Text = "Base de datos conectada";
                 lblEstado.ForeColor = Color.Green;
-
-                // MOSTRAR DATOS DEL USUARIO
                 lblUsuario.Text = "Usuario: " + nombreUsuario;
-
                 lblPerfil.Text = "Perfil: " + rolUsuario;
-
                 lblFechaHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
             }
             else
             {
                 lblEstado.Text = "No se pudo conectar la base de datos";
                 lblEstado.ForeColor = Color.Red;
-
-                MessageBox.Show(con.ERROR);
+                MessageBox.Show(clsConexion.ConexionBD.error);
             }
         }
     }
