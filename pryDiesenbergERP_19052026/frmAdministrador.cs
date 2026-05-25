@@ -16,5 +16,11 @@ namespace pryDiesenbergERP_19052026
         {
             InitializeComponent();
         }
+
+        private void btnContactos_Click(object sender, EventArgs e)
+        {
+            frmContacto x = new frmContacto();  
+            x.ShowDialog();
+        }
     }
 }

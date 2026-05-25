@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace pryDiesenbergERP_19052026
 {
-    public partial class frmRRHH : Form
+    public partial class frmContacto : Form
     {
-        public frmRRHH()
+        public frmContacto()
         {
             InitializeComponent();
-        }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
