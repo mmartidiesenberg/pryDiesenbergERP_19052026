@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows.Forms;
 
 namespace pryDiesenbergERP_19052026
 {
@@ -12,8 +13,12 @@ namespace pryDiesenbergERP_19052026
     {
         public static void ImportarLocalidades()
         {
-            string rutaCSV = @"C:\Users\Alumno\Downloads\localidades_cordoba.csv";
-            string rutaAccess = @"C:\Users\Alumno\source\repos\pryDiesenbergERP_19052026\pryDiesenbergERP_19052026\Base de Datos\Diesenberg.accdb";
+            string rutaCSV = Path.Combine(Application.StartupPath,
+                              "Archivos",
+                              "localidades_cordoba.csv");
+            string rutaAccess = Path.Combine(Application.StartupPath,
+                                 "Base de Datos",
+                                 "Diesenberg.accdb");
             string connStr = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={rutaAccess};";
             string[] lineas = File.ReadAllLines(rutaCSV, System.Text.Encoding.UTF8);
 
