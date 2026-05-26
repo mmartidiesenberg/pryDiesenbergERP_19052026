@@ -33,9 +33,10 @@
             // 
             // btnContactos
             // 
-            this.btnContactos.Location = new System.Drawing.Point(263, 127);
+            this.btnContactos.Location = new System.Drawing.Point(132, 66);
+            this.btnContactos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnContactos.Name = "btnContactos";
-            this.btnContactos.Size = new System.Drawing.Size(161, 87);
+            this.btnContactos.Size = new System.Drawing.Size(80, 45);
             this.btnContactos.TabIndex = 0;
             this.btnContactos.Text = "Ver contactos";
             this.btnContactos.UseVisualStyleBackColor = true;
@@ -43,11 +44,10 @@
             // 
             // frmAdministrador
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 579);
+            this.ClientSize = new System.Drawing.Size(342, 239);
             this.Controls.Add(this.btnContactos);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "frmAdministrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrador";

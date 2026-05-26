@@ -35,9 +35,11 @@ namespace pryDiesenbergERP_19052026
 
             if (tabla.Rows.Count > 0)
             {
-
                 string usuario = tabla.Rows[0]["Gmail"].ToString();
                 string perfil = tabla.Rows[0]["Perfil"].ToString();
+
+                // GUARDA EL INGRESO EN LA BD
+                clsAuditoria.RegistrarInicioSesion(usuario, false);
 
                 if (perfil == "Administrador")
                 {
@@ -59,22 +61,29 @@ namespace pryDiesenbergERP_19052026
                     Principal.ShowDialog();
                     this.Close();
                 }
-
             }
             else
             {
+                // GUARDA INTENTO FALLIDO
+                clsAuditoria.RegistrarInicioSesion(txtUsuario.Text, true);
+
                 intentos--;
+
                 MessageBox.Show(
                     "Usuario o Contraseña Incorrectos. Te quedan " +
                     intentos + " intentos disponibles."
                 );
+
                 if (intentos <= 0)
                 {
                     this.Close();
                 }
             }
-            if (!string.IsNullOrEmpty(clsConexion.ConexionBD.error)) MessageBox.Show("Error: " + clsConexion.ConexionBD.error);
 
+            if (!string.IsNullOrEmpty(clsConexion.ConexionBD.error))
+            {
+                MessageBox.Show("Error: " + clsConexion.ConexionBD.error);
+            }
         }
     }
 }
