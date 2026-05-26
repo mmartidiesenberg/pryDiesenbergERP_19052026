@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsConexion.cs" />
+    <Compile Include="clsImportarLocalidades.cs" />
     <Compile Include="frmAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
