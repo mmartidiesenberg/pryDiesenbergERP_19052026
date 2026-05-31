@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.gbContacto = new System.Windows.Forms.GroupBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.lblMail = new System.Windows.Forms.Label();
-            this.lblTelefono = new System.Windows.Forms.Label();
-            this.lblRedes = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.cbRedes = new System.Windows.Forms.ComboBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.cbRedes = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblRedes = new System.Windows.Forms.Label();
+            this.lblTelefono = new System.Windows.Forms.Label();
+            this.lblMail = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.gbContacto.SuspendLayout();
             this.SuspendLayout();
@@ -56,39 +56,12 @@
             this.gbContacto.TabStop = false;
             this.gbContacto.Text = "Contacto";
             // 
-            // lblMail
+            // maskedTextBox1
             // 
-            this.lblMail.AutoSize = true;
-            this.lblMail.Location = new System.Drawing.Point(19, 53);
-            this.lblMail.Name = "lblMail";
-            this.lblMail.Size = new System.Drawing.Size(63, 31);
-            this.lblMail.TabIndex = 0;
-            this.lblMail.Text = "Mail";
-            // 
-            // lblTelefono
-            // 
-            this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(19, 169);
-            this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(120, 31);
-            this.lblTelefono.TabIndex = 1;
-            this.lblTelefono.Text = "Teléfono";
-            // 
-            // lblRedes
-            // 
-            this.lblRedes.AutoSize = true;
-            this.lblRedes.Location = new System.Drawing.Point(19, 289);
-            this.lblRedes.Name = "lblRedes";
-            this.lblRedes.Size = new System.Drawing.Size(203, 31);
-            this.lblRedes.TabIndex = 2;
-            this.lblRedes.Text = "Redes Sociales";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(336, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(326, 38);
-            this.textBox1.TabIndex = 4;
+            this.maskedTextBox1.Location = new System.Drawing.Point(336, 162);
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(268, 38);
+            this.maskedTextBox1.TabIndex = 7;
             // 
             // cbRedes
             // 
@@ -103,12 +76,39 @@
             this.cbRedes.Size = new System.Drawing.Size(273, 39);
             this.cbRedes.TabIndex = 6;
             // 
-            // maskedTextBox1
+            // textBox1
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(336, 162);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(268, 38);
-            this.maskedTextBox1.TabIndex = 7;
+            this.textBox1.Location = new System.Drawing.Point(336, 46);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(326, 38);
+            this.textBox1.TabIndex = 4;
+            // 
+            // lblRedes
+            // 
+            this.lblRedes.AutoSize = true;
+            this.lblRedes.Location = new System.Drawing.Point(19, 289);
+            this.lblRedes.Name = "lblRedes";
+            this.lblRedes.Size = new System.Drawing.Size(203, 31);
+            this.lblRedes.TabIndex = 2;
+            this.lblRedes.Text = "Redes Sociales";
+            // 
+            // lblTelefono
+            // 
+            this.lblTelefono.AutoSize = true;
+            this.lblTelefono.Location = new System.Drawing.Point(19, 169);
+            this.lblTelefono.Name = "lblTelefono";
+            this.lblTelefono.Size = new System.Drawing.Size(120, 31);
+            this.lblTelefono.TabIndex = 1;
+            this.lblTelefono.Text = "Teléfono";
+            // 
+            // lblMail
+            // 
+            this.lblMail.AutoSize = true;
+            this.lblMail.Location = new System.Drawing.Point(19, 53);
+            this.lblMail.Name = "lblMail";
+            this.lblMail.Size = new System.Drawing.Size(63, 31);
+            this.lblMail.TabIndex = 0;
+            this.lblMail.Text = "Mail";
             // 
             // chkActivo
             // 
@@ -131,6 +131,7 @@
             this.Name = "frmContacto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Contacto";
+            this.Load += new System.EventHandler(this.frmContacto_Load);
             this.gbContacto.ResumeLayout(false);
             this.gbContacto.PerformLayout();
             this.ResumeLayout(false);

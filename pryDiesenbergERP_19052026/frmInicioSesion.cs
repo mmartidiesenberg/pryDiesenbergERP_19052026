@@ -43,7 +43,7 @@ namespace pryDiesenbergERP_19052026
 
                 if (perfil == "Administrador")
                 {
-                    frmAdministrador Administrador = new frmAdministrador();
+                    frmAdministrador Administrador = new frmAdministrador(usuario, perfil);
                     Administrador.ShowDialog();
                     this.Close();
                 }
@@ -84,6 +84,11 @@ namespace pryDiesenbergERP_19052026
             {
                 MessageBox.Show("Error: " + clsConexion.ConexionBD.error);
             }
+        }
+
+        private void gbInicio_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

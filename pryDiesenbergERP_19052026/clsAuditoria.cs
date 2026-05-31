@@ -28,20 +28,16 @@ namespace pryDiesenbergERP_19052026
                     conn.Open();
 
                     string sql = @"INSERT INTO AuditoriaInicioSesion
-                                  (FechayHora, nombreUsuario, IntentoFallido)
-                                  VALUES (?, ?, ?)";
+                    (FechayHora, NombreUsuario, IntentoFallido)
+                    VALUES (?, ?, ?)";
 
                     using (OleDbCommand cmd = new OleDbCommand(sql, conn))
                     {
                         cmd.Parameters.Add("?", OleDbType.Date).Value = DateTime.Now;
-
                         cmd.Parameters.Add("?", OleDbType.VarChar).Value = usuario;
-
                         cmd.Parameters.Add("?", OleDbType.Boolean).Value = intentoFallido;
 
                         cmd.ExecuteNonQuery();
-
-                        MessageBox.Show("Se guardó correctamente");
                     }
                 }
             }
@@ -50,7 +46,5 @@ namespace pryDiesenbergERP_19052026
                 MessageBox.Show(ex.ToString());
             }
         }
-
-
     }
 }

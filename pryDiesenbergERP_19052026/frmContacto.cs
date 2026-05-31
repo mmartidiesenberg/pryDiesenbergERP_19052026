@@ -16,5 +16,10 @@ namespace pryDiesenbergERP_19052026
         {
             InitializeComponent();
         }
+
+        private void frmContacto_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

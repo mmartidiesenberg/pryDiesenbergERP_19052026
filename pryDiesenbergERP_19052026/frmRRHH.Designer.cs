@@ -45,10 +45,10 @@
             this.lblGEO = new System.Windows.Forms.Label();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.gbEliminar = new System.Windows.Forms.GroupBox();
-            this.cmbUsuario = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbUsuario = new System.Windows.Forms.ComboBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.gbDatos.SuspendLayout();
             this.gbDomicilio.SuspendLayout();
             this.gbEliminar.SuspendLayout();
@@ -64,9 +64,9 @@
             this.gbDatos.Controls.Add(this.lblNombre);
             this.gbDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDatos.Location = new System.Drawing.Point(42, 23);
-            this.gbDatos.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gbDatos.Margin = new System.Windows.Forms.Padding(6);
             this.gbDatos.Name = "gbDatos";
-            this.gbDatos.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gbDatos.Padding = new System.Windows.Forms.Padding(6);
             this.gbDatos.Size = new System.Drawing.Size(530, 363);
             this.gbDatos.TabIndex = 0;
             this.gbDatos.TabStop = false;
@@ -75,7 +75,7 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(276, 265);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(6);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(196, 38);
             this.txtNombre.TabIndex = 10;
@@ -83,7 +83,7 @@
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(276, 171);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(6);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(196, 38);
             this.txtApellido.TabIndex = 9;
@@ -91,7 +91,7 @@
             // txtDNI
             // 
             this.txtDNI.Location = new System.Drawing.Point(276, 73);
-            this.txtDNI.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtDNI.Margin = new System.Windows.Forms.Padding(6);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(196, 38);
             this.txtDNI.TabIndex = 8;
@@ -138,9 +138,9 @@
             this.gbDomicilio.Controls.Add(this.lblDireccion);
             this.gbDomicilio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDomicilio.Location = new System.Drawing.Point(637, 23);
-            this.gbDomicilio.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gbDomicilio.Margin = new System.Windows.Forms.Padding(6);
             this.gbDomicilio.Name = "gbDomicilio";
-            this.gbDomicilio.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gbDomicilio.Padding = new System.Windows.Forms.Padding(6);
             this.gbDomicilio.Size = new System.Drawing.Size(530, 421);
             this.gbDomicilio.TabIndex = 1;
             this.gbDomicilio.TabStop = false;
@@ -150,7 +150,7 @@
             // 
             this.cmbProvincia.FormattingEnabled = true;
             this.cmbProvincia.Location = new System.Drawing.Point(276, 342);
-            this.cmbProvincia.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbProvincia.Margin = new System.Windows.Forms.Padding(6);
             this.cmbProvincia.Name = "cmbProvincia";
             this.cmbProvincia.Size = new System.Drawing.Size(196, 39);
             this.cmbProvincia.TabIndex = 14;
@@ -159,7 +159,7 @@
             // 
             this.cmbLocalidad.FormattingEnabled = true;
             this.cmbLocalidad.Location = new System.Drawing.Point(276, 256);
-            this.cmbLocalidad.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbLocalidad.Margin = new System.Windows.Forms.Padding(6);
             this.cmbLocalidad.Name = "cmbLocalidad";
             this.cmbLocalidad.Size = new System.Drawing.Size(196, 39);
             this.cmbLocalidad.TabIndex = 13;
@@ -167,7 +167,7 @@
             // txtGEO
             // 
             this.txtGEO.Location = new System.Drawing.Point(276, 165);
-            this.txtGEO.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtGEO.Margin = new System.Windows.Forms.Padding(6);
             this.txtGEO.Name = "txtGEO";
             this.txtGEO.Size = new System.Drawing.Size(196, 38);
             this.txtGEO.TabIndex = 12;
@@ -175,7 +175,7 @@
             // txtDireccion
             // 
             this.txtDireccion.Location = new System.Drawing.Point(276, 73);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(6);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(196, 38);
             this.txtDireccion.TabIndex = 11;
@@ -233,13 +233,15 @@
             this.gbEliminar.TabStop = false;
             this.gbEliminar.Text = "Eliminar datos";
             // 
-            // cmbUsuario
+            // btnEliminar
             // 
-            this.cmbUsuario.FormattingEnabled = true;
-            this.cmbUsuario.Location = new System.Drawing.Point(830, 81);
-            this.cmbUsuario.Name = "cmbUsuario";
-            this.cmbUsuario.Size = new System.Drawing.Size(237, 39);
-            this.cmbUsuario.TabIndex = 0;
+            this.btnEliminar.Location = new System.Drawing.Point(871, 188);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(196, 52);
+            this.btnEliminar.TabIndex = 3;
+            this.btnEliminar.Text = "Eliminar usuario";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // label1
             // 
@@ -249,6 +251,14 @@
             this.label1.Size = new System.Drawing.Size(402, 31);
             this.label1.TabIndex = 1;
             this.label1.Text = "Seleccione el usuario a eliminar:";
+            // 
+            // cmbUsuario
+            // 
+            this.cmbUsuario.FormattingEnabled = true;
+            this.cmbUsuario.Location = new System.Drawing.Point(830, 81);
+            this.cmbUsuario.Name = "cmbUsuario";
+            this.cmbUsuario.Size = new System.Drawing.Size(237, 39);
+            this.cmbUsuario.TabIndex = 0;
             // 
             // btnAgregar
             // 
@@ -261,29 +271,20 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(871, 188);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(196, 52);
-            this.btnEliminar.TabIndex = 3;
-            this.btnEliminar.Text = "Eliminar usuario";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
             // frmRRHH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1418, 921);
+            this.ClientSize = new System.Drawing.Size(1275, 921);
             this.Controls.Add(this.gbEliminar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.gbDomicilio);
             this.Controls.Add(this.gbDatos);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmRRHH";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RRHH";
+            this.Load += new System.EventHandler(this.frmRRHH_Load);
             this.gbDatos.ResumeLayout(false);
             this.gbDatos.PerformLayout();
             this.gbDomicilio.ResumeLayout(false);

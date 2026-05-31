@@ -26,5 +26,10 @@ namespace pryDiesenbergERP_19052026
         {
 
         }
+
+        private void frmRRHH_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
