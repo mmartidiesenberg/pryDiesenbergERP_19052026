@@ -29,7 +29,30 @@ namespace pryDiesenbergERP_19052026
 
         private void frmRRHH_Load(object sender, EventArgs e)
         {
+            if (clsConexion.ConexionBD.Conectar())
+            {
+                // Provincias
+                DataTable tablaProvincias =
+                    clsConexion.ConexionBD.Consultar(
+                    "SELECT * FROM Provincias");
 
+                cmbProvincia.DataSource = tablaProvincias;
+                cmbProvincia.DisplayMember = "Provincia";
+                cmbProvincia.ValueMember = "Id_Provincia";
+
+                // Localidades
+                DataTable tablaLocalidades =
+                    clsConexion.ConexionBD.Consultar(
+                    "SELECT * FROM Localidades");
+
+                cmbLocalidad.DataSource = tablaLocalidades;
+                cmbLocalidad.DisplayMember = "Localidades";
+                cmbLocalidad.ValueMember = "Id_Localidades";
+            }
+            else
+            {
+                MessageBox.Show(clsConexion.ConexionBD.error);
+            }
         }
     }
 }
