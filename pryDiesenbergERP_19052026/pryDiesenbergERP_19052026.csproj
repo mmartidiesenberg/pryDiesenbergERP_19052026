@@ -51,7 +51,6 @@
   <ItemGroup>
     <Compile Include="clsAuditoria.cs" />
     <Compile Include="clsConexion.cs" />
-    <Compile Include="clsImportarLocalidades.cs" />
     <Compile Include="frmAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>

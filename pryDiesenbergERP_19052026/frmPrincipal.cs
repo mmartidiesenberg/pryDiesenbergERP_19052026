@@ -12,12 +12,14 @@ namespace pryDiesenbergERP_19052026
 {
     public partial class frmPrincipal : Form
     {
-        public string nombreUsuario;
-        public string rolUsuario;
+        string nombreUsuario;
+        string rolUsuario;
 
-        public frmPrincipal()
+        public frmPrincipal(string nombre, string perfil)
         {
             InitializeComponent();
+            nombreUsuario = nombre; 
+            rolUsuario = perfil;
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
@@ -26,8 +28,8 @@ namespace pryDiesenbergERP_19052026
             {
                 lblEstado.Text = "Base de datos conectada";
                 lblEstado.ForeColor = Color.Green;
-                lblUsuario.Text = "Usuario: " + nombreUsuario;
-                lblPerfil.Text = "Perfil: " + rolUsuario;
+                lblUsuario.Text = nombreUsuario;
+                lblPerfil.Text = rolUsuario;
                 lblFechaHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
             }
             else

@@ -57,7 +57,7 @@ namespace pryDiesenbergERP_19052026
 
                 else
                 {
-                    frmPrincipal Principal = new frmPrincipal();
+                    frmPrincipal Principal = new frmPrincipal(usuario, perfil);
                     Principal.ShowDialog();
                     this.Close();
                 }

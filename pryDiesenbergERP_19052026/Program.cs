@@ -14,7 +14,6 @@ namespace pryDiesenbergERP_19052026
         [STAThread]
         static void Main()
         {
-            clsImportarLocalidades.ImportarLocalidades();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmInicioSesion());

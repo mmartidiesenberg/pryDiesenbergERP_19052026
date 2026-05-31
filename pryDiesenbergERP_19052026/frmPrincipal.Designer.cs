@@ -68,8 +68,9 @@
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.Location = new System.Drawing.Point(466, 130);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(0, 31);
+            this.lblUsuario.Size = new System.Drawing.Size(108, 31);
             this.lblUsuario.TabIndex = 1;
+            this.lblUsuario.Text = "Usuario";
             // 
             // lblPerfil
             // 
@@ -77,8 +78,9 @@
             this.lblPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPerfil.Location = new System.Drawing.Point(466, 263);
             this.lblPerfil.Name = "lblPerfil";
-            this.lblPerfil.Size = new System.Drawing.Size(0, 31);
+            this.lblPerfil.Size = new System.Drawing.Size(76, 31);
             this.lblPerfil.TabIndex = 2;
+            this.lblPerfil.Text = "Perfil";
             // 
             // lblFechaHora
             // 
@@ -86,8 +88,9 @@
             this.lblFechaHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaHora.Location = new System.Drawing.Point(466, 386);
             this.lblFechaHora.Name = "lblFechaHora";
-            this.lblFechaHora.Size = new System.Drawing.Size(0, 31);
+            this.lblFechaHora.Size = new System.Drawing.Size(177, 31);
             this.lblFechaHora.TabIndex = 3;
+            this.lblFechaHora.Text = "Fecha y Hora";
             // 
             // frmPrincipal
             // 
@@ -99,7 +102,7 @@
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.statusStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal ERP";
