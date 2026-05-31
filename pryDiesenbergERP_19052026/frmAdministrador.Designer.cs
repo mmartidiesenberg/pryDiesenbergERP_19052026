@@ -36,6 +36,7 @@
             this.btnPrincipal = new System.Windows.Forms.Button();
             this.btnRRHH = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAuditoria = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,7 +108,7 @@
             // btnRRHH
             // 
             this.btnRRHH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRRHH.Location = new System.Drawing.Point(285, 231);
+            this.btnRRHH.Location = new System.Drawing.Point(131, 242);
             this.btnRRHH.Margin = new System.Windows.Forms.Padding(4);
             this.btnRRHH.Name = "btnRRHH";
             this.btnRRHH.Size = new System.Drawing.Size(160, 87);
@@ -118,6 +119,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAuditoria);
             this.groupBox1.Controls.Add(this.btnRRHH);
             this.groupBox1.Controls.Add(this.btnContactos);
             this.groupBox1.Controls.Add(this.btnPrincipal);
@@ -127,6 +129,18 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operaciones";
+            // 
+            // btnAuditoria
+            // 
+            this.btnAuditoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAuditoria.Location = new System.Drawing.Point(466, 242);
+            this.btnAuditoria.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAuditoria.Name = "btnAuditoria";
+            this.btnAuditoria.Size = new System.Drawing.Size(160, 87);
+            this.btnAuditoria.TabIndex = 10;
+            this.btnAuditoria.Text = "Ver auditoría";
+            this.btnAuditoria.UseVisualStyleBackColor = true;
+            this.btnAuditoria.Click += new System.EventHandler(this.btnAuditoria_Click);
             // 
             // frmAdministrador
             // 
@@ -159,5 +173,6 @@
         private System.Windows.Forms.Button btnPrincipal;
         private System.Windows.Forms.Button btnRRHH;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnAuditoria;
     }
 }

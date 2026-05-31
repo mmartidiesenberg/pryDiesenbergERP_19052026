@@ -52,5 +52,11 @@ namespace pryDiesenbergERP_19052026
             frmRRHH r = new frmRRHH();
             r.ShowDialog();
         }
+
+        private void btnAuditoria_Click(object sender, EventArgs e)
+        {
+            frmAuditoria q = new frmAuditoria();    
+            q.ShowDialog(); 
+        }
     }
 }
