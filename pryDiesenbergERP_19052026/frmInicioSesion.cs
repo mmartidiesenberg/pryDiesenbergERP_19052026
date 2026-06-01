@@ -39,7 +39,7 @@ namespace pryDiesenbergERP_19052026
                 string perfil = tabla.Rows[0]["Perfil"].ToString();
 
                 // GUARDA EL INGRESO EN LA BD
-                clsAuditoria.RegistrarInicioSesion(usuario, false);
+                clsAuditoria.RegistrarInicioSesion(usuario, false, "Inicio de sesión");
 
                 if (perfil == "Administrador")
                 {
@@ -65,7 +65,7 @@ namespace pryDiesenbergERP_19052026
             else
             {
                 // GUARDA INTENTO FALLIDO
-                clsAuditoria.RegistrarInicioSesion(txtUsuario.Text, true);
+                clsAuditoria.RegistrarInicioSesion(txtUsuario.Text, true, "Inicio de sesión fallido");
 
                 intentos--;
 

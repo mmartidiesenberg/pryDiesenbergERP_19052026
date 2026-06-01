@@ -23,7 +23,7 @@ namespace pryDiesenbergERP_19052026
 
         private void btnContactos_Click(object sender, EventArgs e)
         {
-            clsAuditoria.RegistrarInicioSesion(nombreUsuario, false);
+            clsAuditoria.RegistrarInicioSesion(nombreUsuario, false, "Ingresó a contactos");
             frmContacto x = new frmContacto();  
             x.ShowDialog();
         }
@@ -47,7 +47,7 @@ namespace pryDiesenbergERP_19052026
 
         private void btnRRHH_Click(object sender, EventArgs e)
         {
-            clsAuditoria.RegistrarInicioSesion(nombreUsuario, false);
+            clsAuditoria.RegistrarInicioSesion(nombreUsuario, false, "Ingresó a RRHH");
 
             frmRRHH r = new frmRRHH();
             r.ShowDialog();

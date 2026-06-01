@@ -11,7 +11,7 @@ namespace pryDiesenbergERP_19052026
 {
     internal class clsAuditoria
     {
-        public static void RegistrarInicioSesion(string usuario, bool intentoFallido)
+        public static void RegistrarInicioSesion(string usuario, bool intentoFallido, string accion)
         {
             try
             {
@@ -28,14 +28,15 @@ namespace pryDiesenbergERP_19052026
                     conn.Open();
 
                     string sql = @"INSERT INTO AuditoriaInicioSesion
-                    (FechayHora, NombreUsuario, IntentoFallido)
-                    VALUES (?, ?, ?)";
+                    (FechayHora, NombreUsuario, IntentoFallido, Acción)
+                    VALUES (?, ?, ?, ?)";
 
                     using (OleDbCommand cmd = new OleDbCommand(sql, conn))
                     {
                         cmd.Parameters.Add("?", OleDbType.Date).Value = DateTime.Now;
                         cmd.Parameters.Add("?", OleDbType.VarChar).Value = usuario;
                         cmd.Parameters.Add("?", OleDbType.Boolean).Value = intentoFallido;
+                        cmd.Parameters.Add("?", OleDbType.VarChar).Value = accion;
 
                         cmd.ExecuteNonQuery();
                     }
