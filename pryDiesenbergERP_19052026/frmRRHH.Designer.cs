@@ -51,6 +51,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbUsuario = new System.Windows.Forms.ComboBox();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnVolverAdmin = new System.Windows.Forms.Button();
             this.gbDatos.SuspendLayout();
             this.gbDomicilio.SuspendLayout();
             this.gbEliminar.SuspendLayout();
@@ -90,7 +91,7 @@
             "Analista",
             "Supervisor"});
             this.cmbPerfil.Location = new System.Drawing.Point(138, 190);
-            this.cmbPerfil.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbPerfil.Margin = new System.Windows.Forms.Padding(2);
             this.cmbPerfil.Name = "cmbPerfil";
             this.cmbPerfil.Size = new System.Drawing.Size(100, 24);
             this.cmbPerfil.TabIndex = 3;
@@ -245,9 +246,9 @@
             this.gbEliminar.Controls.Add(this.cmbUsuario);
             this.gbEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbEliminar.Location = new System.Drawing.Point(21, 307);
-            this.gbEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.gbEliminar.Name = "gbEliminar";
-            this.gbEliminar.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbEliminar.Padding = new System.Windows.Forms.Padding(2);
             this.gbEliminar.Size = new System.Drawing.Size(562, 142);
             this.gbEliminar.TabIndex = 0;
             this.gbEliminar.TabStop = false;
@@ -256,7 +257,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Location = new System.Drawing.Point(436, 98);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(98, 27);
             this.btnEliminar.TabIndex = 3;
@@ -279,7 +280,7 @@
             this.cmbUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUsuario.FormattingEnabled = true;
             this.cmbUsuario.Location = new System.Drawing.Point(415, 42);
-            this.cmbUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.cmbUsuario.Name = "cmbUsuario";
             this.cmbUsuario.Size = new System.Drawing.Size(120, 24);
             this.cmbUsuario.TabIndex = 0;
@@ -288,7 +289,7 @@
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.Location = new System.Drawing.Point(486, 242);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(98, 27);
             this.btnAgregar.TabIndex = 2;
@@ -296,11 +297,22 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
+            // btnVolverAdmin
+            // 
+            this.btnVolverAdmin.Location = new System.Drawing.Point(228, 483);
+            this.btnVolverAdmin.Name = "btnVolverAdmin";
+            this.btnVolverAdmin.Size = new System.Drawing.Size(140, 23);
+            this.btnVolverAdmin.TabIndex = 50;
+            this.btnVolverAdmin.Text = "Volver a Administrador";
+            this.btnVolverAdmin.UseVisualStyleBackColor = true;
+            this.btnVolverAdmin.Click += new System.EventHandler(this.BtnVolverAdmin_Click);
+            // 
             // frmRRHH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 479);
+            this.ClientSize = new System.Drawing.Size(638, 518);
+            this.Controls.Add(this.btnVolverAdmin);
             this.Controls.Add(this.gbEliminar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.gbDomicilio);
@@ -344,5 +356,6 @@
         private System.Windows.Forms.ComboBox cmbUsuario;
         private System.Windows.Forms.ComboBox cmbPerfil;
         private System.Windows.Forms.Label lblPerfil;
+        private System.Windows.Forms.Button btnVolverAdmin;
     }
 }

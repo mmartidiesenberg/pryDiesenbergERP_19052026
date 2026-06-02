@@ -19,28 +19,112 @@ namespace pryDiesenbergERP_19052026
 
         private void frmAuditoria_Load(object sender, EventArgs e)
         {
+            CargarDatosAuditoria();
+
+            // Find if admin is open
+            Form adminForm = null;
+            foreach (Form open in Application.OpenForms)
+            {
+                if (open is frmAdministrador)
+                {
+                    adminForm = open;
+                    break;
+                }
+            }
+
+            var foundAdmin = this.Controls.Find("btnVolverAdmin", true);
+            var foundVolver = this.Controls.Find("btnMostrarTodo", true); // keep mostrar todo
+
+            Button btnAdmin = (foundAdmin.Length > 0) ? foundAdmin[0] as Button : null;
+
+            if (adminForm != null)
+            {
+                if (btnAdmin != null)
+                {
+                    btnAdmin.Visible = true;
+                    btnAdmin.Click -= BtnVolverAdmin_Click;
+                    btnAdmin.Click += BtnVolverAdmin_Click;
+                }
+            }
+            else
+            {
+                if (btnAdmin != null) btnAdmin.Visible = false;
+            }
+        }
+
+        private void BtnVolverAdmin_Click(object sender, EventArgs e)
+        {
+            // Intentar mostrar el frmAdministrador si existe en OpenForms
+            Form adminForm = null;
+            foreach (Form open in Application.OpenForms)
+            {
+                if (open is frmAdministrador)
+                {
+                    adminForm = open;
+                    break;
+                }
+            }
+
+            if (adminForm != null)
+            {
+                adminForm.Show();
+                adminForm.BringToFront();
+            }
+            else
+            {
+                frmAdministrador admin = new frmAdministrador("Administrador","Administrador");
+                admin.Show();
+            }
+
+            this.Close();
+        }
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            CargarDatosAuditoria();
+        }
+
+        private void CargarDatosAuditoria()
+        {
             if (clsConexion.ConexionBD.Conectar())
             {
-                // Cargar la auditoría en la grilla
-                dgvAuditoria.DataSource =
-                    clsConexion.ConexionBD.Consultar(
-                    "SELECT * FROM AuditoriaInicioSesion");
+                // Mostrar fecha, usuario, acción y una columna Ingreso que muestra SI si pudo entrar y NO si fallo
+                string baseSql = "SELECT FechayHora, NombreUsuario, Acción, IIF(IntentoFallido=0,'SI','NO') AS Ingreso FROM AuditoriaInicioSesion ORDER BY FechayHora DESC";
+                dgvAuditoria.DataSource = clsConexion.ConexionBD.Consultar(baseSql);
 
-                // Cargar usuarios en el ComboBox
-                DataTable tablaUsuarios =
-                    clsConexion.ConexionBD.Consultar(
-                    "SELECT DISTINCT NombreUsuario FROM AuditoriaInicioSesion");
+                // Cargar sólo emails: combinar emails que estén ya en la auditoría y los Gmail registrados en Usuario
+                string sqlUsuarios =
+                    "SELECT DISTINCT NombreUsuario AS Email FROM AuditoriaInicioSesion WHERE NombreUsuario LIKE '%@%' " +
+                    "UNION SELECT DISTINCT Gmail AS Email FROM Usuario WHERE Gmail IS NOT NULL AND Gmail <> '' " +
+                    "ORDER BY Email";
+
+                DataTable tablaUsuarios = clsConexion.ConexionBD.Consultar(sqlUsuarios);
 
                 cmbUsuario.DataSource = tablaUsuarios;
-                cmbUsuario.DisplayMember = "NombreUsuario";
+                cmbUsuario.DisplayMember = "Email";
+                cmbUsuario.ValueMember = "Email";
+
+                // dejar sin selección por defecto
+                cmbUsuario.SelectedIndex = -1;
+                cmbUsuario.Text = string.Empty;
 
                 // Cargar opciones del ComboBox Intento
                 cmbIntento.Items.Clear();
                 cmbIntento.Items.Add("Todos");
-                cmbIntento.Items.Add("Sí");
-                cmbIntento.Items.Add("No");
+                cmbIntento.Items.Add("SI");
+                cmbIntento.Items.Add("NO");
 
                 cmbIntento.SelectedIndex = 0;
+
+                // Wire up events so filters apply immediately when user changes selection
+                cmbUsuario.SelectedIndexChanged -= cmbUsuario_SelectedIndexChanged;
+                cmbUsuario.SelectedIndexChanged += cmbUsuario_SelectedIndexChanged;
+                cmbUsuario.TextChanged -= cmbUsuario_TextChanged;
+                cmbUsuario.TextChanged += cmbUsuario_TextChanged;
+
+                cmbIntento.SelectedIndexChanged -= cmbIntento_SelectedIndexChanged;
+                cmbIntento.SelectedIndexChanged += cmbIntento_SelectedIndexChanged;
             }
             else
             {
@@ -48,31 +132,66 @@ namespace pryDiesenbergERP_19052026
             }
         }
 
+        private void ApplyFilter()
+        {
+            try
+            {
+                string sql = "SELECT FechayHora, NombreUsuario, Acción, IIF(IntentoFallido=0,'SI','NO') AS Ingreso FROM AuditoriaInicioSesion WHERE 1=1";
+
+                // Filtrar por usuario (email) si hay texto
+                if (!string.IsNullOrEmpty(cmbUsuario.Text))
+                {
+                    string usuario = cmbUsuario.Text.Replace("'", "''");
+                    sql += " AND NombreUsuario = '" + usuario + "'";
+                }
+
+                // Filtrar por intento: SI -> IntentoFallido = False; NO -> IntentoFallido = True
+                if (cmbIntento.Text == "SI")
+                {
+                    sql += " AND IntentoFallido = False";
+                }
+                else if (cmbIntento.Text == "NO")
+                {
+                    sql += " AND IntentoFallido = True";
+                }
+
+                sql += " ORDER BY FechayHora DESC";
+
+                dgvAuditoria.DataSource = clsConexion.ConexionBD.Consultar(sql);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al filtrar: " + ex.Message);
+            }
+        }
+
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            string sql = "SELECT * FROM AuditoriaInicioSesion WHERE 1=1";
+            ApplyFilter();
+        }
 
-            if (cmbUsuario.Text != "")
-            {
-                sql += " AND NombreUsuario = '" + cmbUsuario.Text + "'";
-            }
+        private void cmbUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Apply filter automatically when user selection changes
+            ApplyFilter();
+        }
 
-            if (cmbIntento.Text == "Sí")
-            {
-                sql += " AND IntentoFallido = True";
-            }
-            else if (cmbIntento.Text == "No")
-            {
-                sql += " AND IntentoFallido = False";
-            }
+        private void cmbUsuario_TextChanged(object sender, EventArgs e)
+        {
+            // Also apply when text changes (in case user types)
+            // Only apply if not empty to avoid spamming when clearing
+            if (!string.IsNullOrEmpty(cmbUsuario.Text)) ApplyFilter();
+        }
 
-            dgvAuditoria.DataSource =
-                clsConexion.ConexionBD.Consultar(sql);
+        private void cmbIntento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Apply filter automatically when intento changes
+            ApplyFilter();
         }
 
         private void btnMostrarTodo_Click(object sender, EventArgs e)
         {
-            dgvAuditoria.DataSource = clsConexion.ConexionBD.Consultar("SELECT * FROM AuditoriaInicioSesion");
+            CargarDatosAuditoria();
         }
     }
 }

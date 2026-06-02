@@ -25,6 +25,20 @@ namespace pryDiesenbergERP_19052026
             
         }
 
+        public void ClearFields()
+        {
+            try
+            {
+                // Limpiar campos de usuario y contraseña y colocar el foco en usuario
+                txtUsuario.Text = string.Empty;
+                txtContrasenia.Text = string.Empty;
+                txtUsuario.Focus();
+                // Resetear intentos si se desea (opcional)
+                intentos = 3;
+            }
+            catch { }
+        }
+
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             clsConexion.ConexionBD.Conectar();
@@ -35,36 +49,42 @@ namespace pryDiesenbergERP_19052026
 
             if (tabla.Rows.Count > 0)
             {
-                string usuario = tabla.Rows[0]["Gmail"].ToString();
+                // Obtener datos
+                string gmail = tabla.Rows[0]["Gmail"].ToString().Trim();
+                string nombreCompleto = tabla.Rows[0]["Nombre"].ToString().Trim() + " " + tabla.Rows[0]["Apellido"].ToString().Trim();
                 string perfil = tabla.Rows[0]["Perfil"].ToString();
 
-                // GUARDA EL INGRESO EN LA BD
-                clsAuditoria.RegistrarInicioSesion(usuario, false, "Inicio de sesión");
+                // GUARDA EL INGRESO EN LA BD usando el Gmail para que en auditoría aparezcan emails
+                clsAuditoria.RegistrarInicioSesion(gmail, false, "Inicio de sesión");
 
+                // No cerrar el formulario de login: ocultarlo y volver a mostrar cuando se cierre el formulario hijo
                 if (perfil == "Administrador")
                 {
-                    frmAdministrador Administrador = new frmAdministrador(usuario, perfil);
+                    frmAdministrador Administrador = new frmAdministrador(nombreCompleto, perfil);
+                    this.Hide();
                     Administrador.ShowDialog();
-                    this.Close();
+                    this.Show();
                 }
 
                 else if (perfil == "Recursos Humanos")
                 {
-                    frmRRHH RecursosHumanos = new frmRRHH(usuario, perfil);
+                    frmRRHH RecursosHumanos = new frmRRHH(nombreCompleto, perfil);
+                    this.Hide();
                     RecursosHumanos.ShowDialog();
-                    this.Close();
+                    this.Show();
                 }
 
                 else
                 {
-                    frmPrincipal Principal = new frmPrincipal(usuario, perfil);
+                    frmPrincipal Principal = new frmPrincipal(nombreCompleto, perfil);
+                    this.Hide();
                     Principal.ShowDialog();
-                    this.Close();
+                    this.Show();
                 }
             }
             else
             {
-                // GUARDA INTENTO FALLIDO
+                // GUARDA INTENTO FALLIDO (texto ingresado, presumiblemente email)
                 clsAuditoria.RegistrarInicioSesion(txtUsuario.Text, true, "Inicio de sesión fallido");
 
                 intentos--;

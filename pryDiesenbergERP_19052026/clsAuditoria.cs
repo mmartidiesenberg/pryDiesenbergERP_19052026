@@ -15,31 +15,26 @@ namespace pryDiesenbergERP_19052026
         {
             try
             {
-                string rutaAccess = Path.Combine(
-                    Application.StartupPath,
-                    "Base de Datos",
-                    "Diesenberg.accdb");
-
-                string connStr =
-                    $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={rutaAccess};";
-
-                using (OleDbConnection conn = new OleDbConnection(connStr))
+                // Asegurarse de que la conexión compartida esté abierta
+                if (!clsConexion.ConexionBD.Conectar())
                 {
-                    conn.Open();
+                    MessageBox.Show("No se pudo conectar a la base de datos para auditar.");
+                    return;
+                }
 
-                    string sql = @"INSERT INTO AuditoriaInicioSesion
-                    (FechayHora, NombreUsuario, IntentoFallido, Acción)
-                    VALUES (?, ?, ?, ?)";
+                // Evitar insertar valores vacíos como nombre
+                string usuarioInsert = string.IsNullOrWhiteSpace(usuario) ? "(sin usuario)" : usuario.Trim();
 
-                    using (OleDbCommand cmd = new OleDbCommand(sql, conn))
-                    {
-                        cmd.Parameters.Add("?", OleDbType.Date).Value = DateTime.Now;
-                        cmd.Parameters.Add("?", OleDbType.VarChar).Value = usuario;
-                        cmd.Parameters.Add("?", OleDbType.Boolean).Value = intentoFallido;
-                        cmd.Parameters.Add("?", OleDbType.VarChar).Value = accion;
+                string sql = @"INSERT INTO AuditoriaInicioSesion (FechayHora, NombreUsuario, IntentoFallido, Acción) VALUES (?, ?, ?, ?)";
 
-                        cmd.ExecuteNonQuery();
-                    }
+                using (OleDbCommand cmd = new OleDbCommand(sql, clsConexion.ConexionBD.conexion))
+                {
+                    cmd.Parameters.Add("@FechayHora", OleDbType.Date).Value = DateTime.Now;
+                    cmd.Parameters.Add("@NombreUsuario", OleDbType.VarChar).Value = usuarioInsert;
+                    cmd.Parameters.Add("@IntentoFallido", OleDbType.Boolean).Value = intentoFallido;
+                    cmd.Parameters.Add("@Accion", OleDbType.VarChar).Value = accion ?? string.Empty;
+
+                    cmd.ExecuteNonQuery();
                 }
             }
             catch (Exception ex)

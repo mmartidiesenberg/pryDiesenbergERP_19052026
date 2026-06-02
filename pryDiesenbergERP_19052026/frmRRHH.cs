@@ -135,6 +135,45 @@ namespace pryDiesenbergERP_19052026
                     fila["Nombre"].ToString() + " " +
                     fila["Apellido"].ToString());
             }
+
+            // Vincular boton VolverAdmin si existe
+            var found = this.Controls.Find("btnVolverAdmin", true);
+            if (found.Length > 0 && found[0] is Button btn)
+            {
+                btn.Click -= BtnVolverAdmin_Click;
+                btn.Click += BtnVolverAdmin_Click;
+
+                // Mostrar el boton solo si el perfil actual es Administrador
+                btn.Visible = (perfil == "Administrador");
+            }
+        }
+
+        private void BtnVolverAdmin_Click(object sender, EventArgs e)
+        {
+            // Intentar mostrar el frmAdministrador si existe en OpenForms
+            Form adminForm = null;
+            foreach (Form open in Application.OpenForms)
+            {
+                if (open is frmAdministrador)
+                {
+                    adminForm = open;
+                    break;
+                }
+            }
+
+            if (adminForm != null)
+            {
+                adminForm.Show();
+            }
+            else
+            {
+                // Abrir una nueva instancia
+                frmAdministrador admin = new frmAdministrador(usuario, perfil);
+                admin.Show();
+            }
+
+            // Cerrar este formulario para volver al administrador
+            this.Close();
         }
     }
 }
