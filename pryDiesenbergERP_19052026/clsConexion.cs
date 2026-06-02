@@ -56,7 +56,9 @@ namespace pryDiesenbergERP_19052026
             {
                 try
                 {
-                    string sql = "INSERT INTO AuditoriaInicioSesion (Usuario, FechayHora, IntentoFallido) " + "VALUES ('" + usuario + "', '" + DateTime.Now.ToString() + "', " + acceso + ")";
+                    string sql = "INSERT INTO AuditoriaInicioSesion (NombreUsuario, FechayHora, IntentoFallido) " +
+                                 "VALUES ('" + usuario + "', #" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "#, " + acceso + ")";
+
                     OleDbCommand cmd = new OleDbCommand(sql, conexion);
                     cmd.ExecuteNonQuery();
                 }
@@ -69,17 +71,19 @@ namespace pryDiesenbergERP_19052026
             {
                 try
                 {
-                    string sql = "INSERT INTO AuditoriaInicioSesion (FechayHora, Usuario, Accion) " + "VALUES (#" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "#, '" + usuario + "', '" + accion + "')";
+                    string sql = "INSERT INTO AuditoriaInicioSesion (FechayHora, NombreUsuario, Acción) " +
+                                 "VALUES (#" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "#, '" + usuario + "', '" + accion + "')";
+
                     OleDbCommand cmd = new OleDbCommand(sql, conexion);
                     cmd.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-
                     error = ex.Message;
                 }
             }
+
 
         }
     }

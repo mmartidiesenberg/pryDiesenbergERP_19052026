@@ -49,64 +49,73 @@
             this.gbContacto.Controls.Add(this.lblTelefono);
             this.gbContacto.Controls.Add(this.lblMail);
             this.gbContacto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbContacto.Location = new System.Drawing.Point(29, 31);
+            this.gbContacto.Location = new System.Drawing.Point(14, 16);
+            this.gbContacto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gbContacto.Name = "gbContacto";
-            this.gbContacto.Size = new System.Drawing.Size(721, 401);
+            this.gbContacto.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbContacto.Size = new System.Drawing.Size(360, 209);
             this.gbContacto.TabIndex = 0;
             this.gbContacto.TabStop = false;
             this.gbContacto.Text = "Contacto";
             // 
             // maskedTextBox1
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(336, 162);
+            this.maskedTextBox1.Location = new System.Drawing.Point(168, 84);
+            this.maskedTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(268, 38);
+            this.maskedTextBox1.Size = new System.Drawing.Size(136, 23);
             this.maskedTextBox1.TabIndex = 7;
             // 
             // cbRedes
             // 
+            this.cbRedes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRedes.FormattingEnabled = true;
             this.cbRedes.Items.AddRange(new object[] {
             "Facebook",
             "Instagram",
             "Twitter",
             "Tik Tok"});
-            this.cbRedes.Location = new System.Drawing.Point(331, 281);
+            this.cbRedes.Location = new System.Drawing.Point(166, 146);
+            this.cbRedes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbRedes.Name = "cbRedes";
-            this.cbRedes.Size = new System.Drawing.Size(273, 39);
+            this.cbRedes.Size = new System.Drawing.Size(138, 24);
             this.cbRedes.TabIndex = 6;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(336, 46);
+            this.textBox1.Location = new System.Drawing.Point(168, 24);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(326, 38);
+            this.textBox1.Size = new System.Drawing.Size(165, 23);
             this.textBox1.TabIndex = 4;
             // 
             // lblRedes
             // 
             this.lblRedes.AutoSize = true;
-            this.lblRedes.Location = new System.Drawing.Point(19, 289);
+            this.lblRedes.Location = new System.Drawing.Point(10, 150);
+            this.lblRedes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRedes.Name = "lblRedes";
-            this.lblRedes.Size = new System.Drawing.Size(203, 31);
+            this.lblRedes.Size = new System.Drawing.Size(106, 17);
             this.lblRedes.TabIndex = 2;
             this.lblRedes.Text = "Redes Sociales";
             // 
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(19, 169);
+            this.lblTelefono.Location = new System.Drawing.Point(10, 88);
+            this.lblTelefono.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(120, 31);
+            this.lblTelefono.Size = new System.Drawing.Size(64, 17);
             this.lblTelefono.TabIndex = 1;
             this.lblTelefono.Text = "Teléfono";
             // 
             // lblMail
             // 
             this.lblMail.AutoSize = true;
-            this.lblMail.Location = new System.Drawing.Point(19, 53);
+            this.lblMail.Location = new System.Drawing.Point(10, 28);
+            this.lblMail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMail.Name = "lblMail";
-            this.lblMail.Size = new System.Drawing.Size(63, 31);
+            this.lblMail.Size = new System.Drawing.Size(33, 17);
             this.lblMail.TabIndex = 0;
             this.lblMail.Text = "Mail";
             // 
@@ -114,20 +123,22 @@
             // 
             this.chkActivo.AutoSize = true;
             this.chkActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkActivo.Location = new System.Drawing.Point(629, 470);
+            this.chkActivo.Location = new System.Drawing.Point(314, 244);
+            this.chkActivo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(121, 35);
+            this.chkActivo.Size = new System.Drawing.Size(65, 21);
             this.chkActivo.TabIndex = 2;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
             // 
             // frmContacto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 653);
+            this.ClientSize = new System.Drawing.Size(400, 340);
             this.Controls.Add(this.chkActivo);
             this.Controls.Add(this.gbContacto);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmContacto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Contacto";

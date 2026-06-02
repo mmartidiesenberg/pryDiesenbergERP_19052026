@@ -42,9 +42,10 @@
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(30, 34);
+            this.lblUsuario.Location = new System.Drawing.Point(15, 18);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(108, 31);
+            this.lblUsuario.Size = new System.Drawing.Size(57, 17);
             this.lblUsuario.TabIndex = 0;
             this.lblUsuario.Text = "Usuario";
             // 
@@ -52,45 +53,52 @@
             // 
             this.lblIntento.AutoSize = true;
             this.lblIntento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIntento.Location = new System.Drawing.Point(30, 125);
+            this.lblIntento.Location = new System.Drawing.Point(15, 65);
+            this.lblIntento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblIntento.Name = "lblIntento";
-            this.lblIntento.Size = new System.Drawing.Size(98, 31);
+            this.lblIntento.Size = new System.Drawing.Size(51, 17);
             this.lblIntento.TabIndex = 1;
             this.lblIntento.Text = "Intento";
             // 
             // dgvAuditoria
             // 
             this.dgvAuditoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAuditoria.Location = new System.Drawing.Point(36, 193);
+            this.dgvAuditoria.Location = new System.Drawing.Point(18, 100);
+            this.dgvAuditoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvAuditoria.Name = "dgvAuditoria";
             this.dgvAuditoria.RowHeadersWidth = 82;
             this.dgvAuditoria.RowTemplate.Height = 33;
-            this.dgvAuditoria.Size = new System.Drawing.Size(780, 465);
+            this.dgvAuditoria.Size = new System.Drawing.Size(390, 242);
             this.dgvAuditoria.TabIndex = 2;
             // 
             // cmbUsuario
             // 
+            this.cmbUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbUsuario.FormattingEnabled = true;
-            this.cmbUsuario.Location = new System.Drawing.Point(364, 34);
+            this.cmbUsuario.Location = new System.Drawing.Point(182, 18);
+            this.cmbUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbUsuario.Name = "cmbUsuario";
-            this.cmbUsuario.Size = new System.Drawing.Size(452, 39);
+            this.cmbUsuario.Size = new System.Drawing.Size(228, 24);
             this.cmbUsuario.TabIndex = 3;
             // 
             // cmbIntento
             // 
+            this.cmbIntento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbIntento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbIntento.FormattingEnabled = true;
-            this.cmbIntento.Location = new System.Drawing.Point(524, 125);
+            this.cmbIntento.Location = new System.Drawing.Point(262, 65);
+            this.cmbIntento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbIntento.Name = "cmbIntento";
-            this.cmbIntento.Size = new System.Drawing.Size(292, 39);
+            this.cmbIntento.Size = new System.Drawing.Size(148, 24);
             this.cmbIntento.TabIndex = 4;
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.Location = new System.Drawing.Point(49, 704);
+            this.btnFiltrar.Location = new System.Drawing.Point(24, 366);
+            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(170, 55);
+            this.btnFiltrar.Size = new System.Drawing.Size(85, 29);
             this.btnFiltrar.TabIndex = 5;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
@@ -98,9 +106,10 @@
             // 
             // btnMostrarTodo
             // 
-            this.btnMostrarTodo.Location = new System.Drawing.Point(646, 704);
+            this.btnMostrarTodo.Location = new System.Drawing.Point(323, 366);
+            this.btnMostrarTodo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMostrarTodo.Name = "btnMostrarTodo";
-            this.btnMostrarTodo.Size = new System.Drawing.Size(170, 55);
+            this.btnMostrarTodo.Size = new System.Drawing.Size(85, 29);
             this.btnMostrarTodo.TabIndex = 6;
             this.btnMostrarTodo.Text = "Mostrar Todo";
             this.btnMostrarTodo.UseVisualStyleBackColor = true;
@@ -108,9 +117,9 @@
             // 
             // frmAuditoria
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(885, 817);
+            this.ClientSize = new System.Drawing.Size(442, 425);
             this.Controls.Add(this.btnMostrarTodo);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.cmbIntento);
@@ -118,6 +127,7 @@
             this.Controls.Add(this.dgvAuditoria);
             this.Controls.Add(this.lblIntento);
             this.Controls.Add(this.lblUsuario);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmAuditoria";
             this.Text = "Auditoría";
             this.Load += new System.EventHandler(this.frmAuditoria_Load);

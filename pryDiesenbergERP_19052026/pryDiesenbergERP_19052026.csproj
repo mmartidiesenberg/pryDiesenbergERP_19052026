@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>database_storage_server_connection_icon_190646.ico</ApplicationIcon>
+    <ApplicationIcon>3986718-building-company-skyscraper-skyscraper-icon_112969.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -130,6 +130,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="3986718-building-company-skyscraper-skyscraper-icon_112969.ico" />
     <Content Include="Base de Datos\Diesenberg.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

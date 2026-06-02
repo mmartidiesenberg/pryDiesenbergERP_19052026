@@ -36,25 +36,41 @@ namespace pryDiesenbergERP_19052026
             string nombre = txtNombre.Text.Trim();
             string apellido = txtApellido.Text.Trim();
             string perfilNuevo = cmbPerfil.SelectedItem.ToString();
-            string dni = txtDNI.Text.Trim();
-            string provincia = cmbProvincia.Text;
-            string localidad = cmbLocalidad.Text;
+            int dni = int.Parse(txtDNI.Text.Trim());
+            string provincia = ((DataRowView)cmbProvincia.SelectedItem)["Provincia"].ToString();
+            string localidad = ((DataRowView)cmbLocalidad.SelectedItem)["Localidades"].ToString();
             string direccion = txtDireccion.Text.Trim();
 
-            clsConexion.ConexionBD.Consultar(
-                "INSERT INTO Usuario (Nombre, Apellido, Perfil, DNI, Provincia, Localidad, Direccion) " +
-                "VALUES ('" + nombre + "', '" + apellido + "', '" + perfilNuevo + "', '" +
-                dni + "', '" + provincia + "', '" + localidad + "', '" + direccion + "')");
-            clsConexion.ConexionBD.AuditarAccion(usuario, "Agregó un Usuario");
+            string sql = "INSERT INTO [Usuario] ([Nombre], [Apellido], [Perfil], [DNI], [Provincia], [Localidad], [Direccion], [Gmail], [Contrasenia], [Telefono]) " +
+                         "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-            MessageBox.Show(
-                "Usuario Agregado Correctamente",
-                "Éxito",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+            try
+            {
+                var cmd = new System.Data.OleDb.OleDbCommand(sql, clsConexion.ConexionBD.conexion);
+                cmd.Parameters.AddWithValue("?", nombre);
+                cmd.Parameters.AddWithValue("?", apellido);
+                cmd.Parameters.AddWithValue("?", perfilNuevo);
+                cmd.Parameters.AddWithValue("?", dni);
+                cmd.Parameters.AddWithValue("?", provincia);
+                cmd.Parameters.AddWithValue("?", localidad);
+                cmd.Parameters.AddWithValue("?", direccion);
+                cmd.Parameters.AddWithValue("?", "");
+                cmd.Parameters.AddWithValue("?", "");
+                cmd.Parameters.AddWithValue("?", "");
+                cmd.ExecuteNonQuery();
+
+                clsConexion.ConexionBD.AuditarAccion(usuario, "Agregó un Usuario");
+
+                MessageBox.Show("Usuario Agregado Correctamente", "Éxito",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar: " + ex.Message);
+            }
+
         }
-    
-
+      
 
        
         private void btnEliminar_Click(object sender, EventArgs e)
