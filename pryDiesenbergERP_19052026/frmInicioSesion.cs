@@ -56,31 +56,14 @@ namespace pryDiesenbergERP_19052026
 
                 // GUARDA EL INGRESO EN LA BD usando el Gmail para que en auditoría aparezcan emails
                 clsAuditoria.RegistrarInicioSesion(gmail, false, "Inicio de sesión");
-
-                // No cerrar el formulario de login: ocultarlo y volver a mostrar cuando se cierre el formulario hijo
-                if (perfil == "Administrador")
-                {
-                    frmAdministrador Administrador = new frmAdministrador(nombreCompleto, perfil);
-                    this.Hide();
-                    Administrador.ShowDialog();
-                    this.Show();
-                }
-
-                else if (perfil == "Recursos Humanos")
-                {
-                    frmRRHH RecursosHumanos = new frmRRHH(nombreCompleto, perfil);
-                    this.Hide();
-                    RecursosHumanos.ShowDialog();
-                    this.Show();
-                }
-
-                else
-                {
-                    frmPrincipal Principal = new frmPrincipal(nombreCompleto, perfil);
-                    this.Hide();
-                    Principal.ShowDialog();
-                    this.Show();
-                }
+                
+                // Mostrar siempre el frmPrincipal para todos los perfiles
+                frmPrincipal Principal = new frmPrincipal(nombreCompleto, perfil);
+                this.Hide();
+                Principal.ShowDialog();
+                // Al cerrar Principal, volver al login
+                this.ClearFields();
+                this.Show();
             }
             else
             {

@@ -14,6 +14,7 @@ namespace pryDiesenbergERP_19052026
     {
         string nombreUsuario;
         string rolUsuario;
+        private bool adminOpened = false; // flag to open admin once
 
         public frmPrincipal(string nombre, string perfil)
         {
@@ -31,6 +32,9 @@ namespace pryDiesenbergERP_19052026
                 lblUsuario.Text = nombreUsuario;
                 lblPerfil.Text = rolUsuario;
                 lblFechaHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                // Update user menu text
+                tsUserMenu.Text = nombreUsuario + " ▼";
             }
             else
             {
@@ -55,7 +59,7 @@ namespace pryDiesenbergERP_19052026
                 btn.Click += btnSalir_Click;
             }
 
-            // Configurar btnVolverAdmin: visible solo para Administrador y ocultar btnVolver
+            // Configurar btnVolverAdmin: visible solo para Administrador and hide regular volver
             var foundAdminBtn = this.Controls.Find("btnVolverAdmin", true);
             var foundVolverBtn = this.Controls.Find("btnVolver", true);
             Button btnAdmin = (foundAdminBtn.Length > 0) ? foundAdminBtn[0] as Button : null;
@@ -72,11 +76,98 @@ namespace pryDiesenbergERP_19052026
 
             if (btnVolver != null)
             {
-                // Ocultar el botón Volver si es administrador, de lo contrario, mostrarlo
+                // Hide the simple volver when admin, otherwise show it
                 btnVolver.Visible = !isAdmin;
                 btnVolver.Click -= btnSalir_Click;
                 btnVolver.Click += btnSalir_Click;
             }
+
+            // Wire user menu
+            tsmiCerrarSesion.Click -= TsmiCerrarSesion_Click;
+            tsmiCerrarSesion.Click += TsmiCerrarSesion_Click;
+
+            tsmiDatos.Click -= TsmiDatos_Click;
+            tsmiDatos.Click += TsmiDatos_Click;
+
+            tsmiModificarPass.Click -= TsmiModificarPass_Click;
+            tsmiModificarPass.Click += TsmiModificarPass_Click;
+
+            tsmiFuncionalidades.Click -= TsmiFuncionalidades_Click;
+            tsmiFuncionalidades.Click += TsmiFuncionalidades_Click;
+
+            // If administrator, automatically open frmAdministrador once
+            if (isAdmin && !adminOpened)
+            {
+                try
+                {
+                    adminOpened = true;
+                    frmAdministrador admin = null;
+                    // reuse existing if any
+                    foreach (Form open in Application.OpenForms)
+                    {
+                        if (open is frmAdministrador)
+                        {
+                            admin = (frmAdministrador)open;
+                            break;
+                        }
+                    }
+
+                    if (admin == null)
+                    {
+                        admin = new frmAdministrador(nombreUsuario, rolUsuario);
+                    }
+
+                    this.Hide();
+                    // make sure admin is invisible before calling ShowDialog
+                    if (admin.Visible)
+                    {
+                        admin.Hide();
+                    }
+                    admin.ShowDialog();
+                    this.Show();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al abrir Administrador automáticamente: " + ex.Message);
+                }
+            }
+        }
+
+        private void TsmiModificarPass_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Funcionalidad de modificar contraseña no implementada.");
+        }
+
+        private void TsmiDatos_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Funcionalidad de datos personales no implementada.");
+        }
+
+        private void TsmiCerrarSesion_Click(object sender, EventArgs e)
+        {
+            // Simular cerrar sesión: volver al frmInicioSesion y limpiar campos
+            Form loginForm = null;
+            foreach (Form open in Application.OpenForms)
+            {
+                if (open is frmInicioSesion)
+                {
+                    loginForm = open;
+                    break;
+                }
+            }
+
+            if (loginForm != null)
+            {
+                ((frmInicioSesion)loginForm).ClearFields();
+                loginForm.Show();
+            }
+            else
+            {
+                var login = new frmInicioSesion();
+                login.Show();
+            }
+
+            this.Close();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -115,32 +206,72 @@ namespace pryDiesenbergERP_19052026
 
         private void BtnVolverAdmin_Click(object sender, EventArgs e)
         {
-            // Si hay una instancia de frmAdministrador abierta, traerla al frente.
-            Form adminForm = null;
-            foreach (Form open in Application.OpenForms)
+            // Open frmAdministrador modally and return to this form after it closes
+            try
             {
-                if (open is frmAdministrador)
+                frmAdministrador admin = null;
+
+                // If an instance already exists, use it, otherwise create a new one
+                foreach (Form open in Application.OpenForms)
                 {
-                    adminForm = open;
-                    break;
+                    if (open is frmAdministrador)
+                    {
+                        admin = (frmAdministrador)open;
+                        break;
+                    }
                 }
-            }
 
-            if (adminForm != null)
-            {
-                adminForm.Show();
-                adminForm.BringToFront();
-                adminForm.Activate();
-            }
-            else
-            {
-                // Abrir nueva instancia con los datos del usuario actual
-                frmAdministrador admin = new frmAdministrador(nombreUsuario, rolUsuario);
-                admin.Show();
-            }
+                if (admin == null)
+                {
+                    admin = new frmAdministrador(nombreUsuario, rolUsuario);
+                }
 
-            // Cerrar este formulario para volver al administrador
-            this.Close();
+                // Hide this form while admin is open
+                this.Hide();
+                admin.ShowDialog();
+                // When admin closes, show this form again
+                this.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir Administrador: " + ex.Message);
+            }
+        }
+
+        private void TsmiFuncionalidades_Click(object sender, EventArgs e)
+        {
+            // Open admin modal via user menu
+            try
+            {
+                frmAdministrador admin = null;
+                foreach (Form open in Application.OpenForms)
+                {
+                    if (open is frmAdministrador)
+                    {
+                        admin = (frmAdministrador)open;
+                        break;
+                    }
+                }
+
+                if (admin == null)
+                {
+                    admin = new frmAdministrador(nombreUsuario, rolUsuario);
+                }
+
+                // Ensure admin is not already visible as non-modal
+                if (admin.Visible)
+                {
+                    admin.Hide();
+                }
+
+                this.Hide();
+                admin.ShowDialog();
+                this.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir Administrador desde Funcionalidades: " + ex.Message);
+            }
         }
     }
 }

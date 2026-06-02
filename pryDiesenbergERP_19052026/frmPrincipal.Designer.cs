@@ -37,7 +37,14 @@
             this.lblFechaHora = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnVolverAdmin = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsUserMenu = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsmiDatos = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiModificarPass = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiFuncionalidades = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiCerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -107,18 +114,68 @@
             // 
             // btnVolverAdmin
             // 
-            this.btnVolverAdmin.Location = new System.Drawing.Point(210, 282);
+            this.btnVolverAdmin.Location = new System.Drawing.Point(370, 277);
             this.btnVolverAdmin.Name = "btnVolverAdmin";
             this.btnVolverAdmin.Size = new System.Drawing.Size(118, 40);
             this.btnVolverAdmin.TabIndex = 5;
             this.btnVolverAdmin.Text = "Volver a Administrador";
             this.btnVolverAdmin.UseVisualStyleBackColor = true;
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsUserMenu});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(585, 25);
+            this.toolStrip1.TabIndex = 6;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsUserMenu
+            // 
+            this.tsUserMenu.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsUserMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiDatos,
+            this.tsmiModificarPass,
+            this.tsmiFuncionalidades,
+            this.tsmiCerrarSesion});
+            this.tsUserMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsUserMenu.Name = "tsUserMenu";
+            this.tsUserMenu.Size = new System.Drawing.Size(91, 22);
+            this.tsUserMenu.Text = "Usuario (perfil)";
+            // 
+            // tsmiDatos
+            // 
+            this.tsmiDatos.Name = "tsmiDatos";
+            this.tsmiDatos.Size = new System.Drawing.Size(193, 22);
+            this.tsmiDatos.Text = "Datos Personales";
+            // 
+            // tsmiModificarPass
+            // 
+            this.tsmiModificarPass.Name = "tsmiModificarPass";
+            this.tsmiModificarPass.Size = new System.Drawing.Size(193, 22);
+            this.tsmiModificarPass.Text = "Modificar Contraseña";
+            // 
+            // tsmiFuncionalidades
+            // 
+            this.tsmiFuncionalidades.Name = "tsmiFuncionalidades";
+            this.tsmiFuncionalidades.Size = new System.Drawing.Size(193, 22);
+            this.tsmiFuncionalidades.Text = "Funcionalidades";
+            this.tsmiFuncionalidades.Click += new System.EventHandler(this.TsmiFuncionalidades_Click);
+            // 
+            // tsmiCerrarSesion
+            // 
+            this.tsmiCerrarSesion.Name = "tsmiCerrarSesion";
+            this.tsmiCerrarSesion.Size = new System.Drawing.Size(193, 22);
+            this.tsmiCerrarSesion.Text = "Cerrar sesión";
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(585, 427);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.btnVolverAdmin);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.lblFechaHora);
@@ -132,6 +189,8 @@
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,6 +206,12 @@
         private System.Windows.Forms.Label lblFechaHora;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnVolverAdmin;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripDropDownButton tsUserMenu;
+        private System.Windows.Forms.ToolStripMenuItem tsmiDatos;
+        private System.Windows.Forms.ToolStripMenuItem tsmiModificarPass;
+        private System.Windows.Forms.ToolStripMenuItem tsmiFuncionalidades;
+        private System.Windows.Forms.ToolStripMenuItem tsmiCerrarSesion;
     }
 }
 
