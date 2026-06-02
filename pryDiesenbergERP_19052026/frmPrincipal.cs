@@ -14,7 +14,6 @@ namespace pryDiesenbergERP_19052026
     {
         string nombreUsuario;
         string rolUsuario;
-        private bool adminOpened = false; // flag to open admin once
 
         public frmPrincipal(string nombre, string perfil)
         {
@@ -95,36 +94,12 @@ namespace pryDiesenbergERP_19052026
             tsmiFuncionalidades.Click -= TsmiFuncionalidades_Click;
             tsmiFuncionalidades.Click += TsmiFuncionalidades_Click;
 
-            // If administrator, automatically open frmAdministrador once
-            if (isAdmin && !adminOpened)
+            // If administrator, optionally open frmAdministrador automatically non-modally
+            if (isAdmin)
             {
                 try
                 {
-                    adminOpened = true;
-                    frmAdministrador admin = null;
-                    // reuse existing if any
-                    foreach (Form open in Application.OpenForms)
-                    {
-                        if (open is frmAdministrador)
-                        {
-                            admin = (frmAdministrador)open;
-                            break;
-                        }
-                    }
-
-                    if (admin == null)
-                    {
-                        admin = new frmAdministrador(nombreUsuario, rolUsuario);
-                    }
-
-                    this.Hide();
-                    // make sure admin is invisible before calling ShowDialog
-                    if (admin.Visible)
-                    {
-                        admin.Hide();
-                    }
-                    admin.ShowDialog();
-                    this.Show();
+                    ShowAdministrator();
                 }
                 catch (Exception ex)
                 {
@@ -206,31 +181,9 @@ namespace pryDiesenbergERP_19052026
 
         private void BtnVolverAdmin_Click(object sender, EventArgs e)
         {
-            // Open frmAdministrador modally and return to this form after it closes
             try
             {
-                frmAdministrador admin = null;
-
-                // If an instance already exists, use it, otherwise create a new one
-                foreach (Form open in Application.OpenForms)
-                {
-                    if (open is frmAdministrador)
-                    {
-                        admin = (frmAdministrador)open;
-                        break;
-                    }
-                }
-
-                if (admin == null)
-                {
-                    admin = new frmAdministrador(nombreUsuario, rolUsuario);
-                }
-
-                // Hide this form while admin is open
-                this.Hide();
-                admin.ShowDialog();
-                // When admin closes, show this form again
-                this.Show();
+                ShowAdministrator();
             }
             catch (Exception ex)
             {
@@ -240,37 +193,48 @@ namespace pryDiesenbergERP_19052026
 
         private void TsmiFuncionalidades_Click(object sender, EventArgs e)
         {
-            // Open admin modal via user menu
             try
             {
-                frmAdministrador admin = null;
-                foreach (Form open in Application.OpenForms)
-                {
-                    if (open is frmAdministrador)
-                    {
-                        admin = (frmAdministrador)open;
-                        break;
-                    }
-                }
-
-                if (admin == null)
-                {
-                    admin = new frmAdministrador(nombreUsuario, rolUsuario);
-                }
-
-                // Ensure admin is not already visible as non-modal
-                if (admin.Visible)
-                {
-                    admin.Hide();
-                }
-
-                this.Hide();
-                admin.ShowDialog();
-                this.Show();
+                ShowAdministrator();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al abrir Administrador desde Funcionalidades: " + ex.Message);
+            }
+        }
+
+        private void ShowAdministrator()
+        {
+            // Find existing admin form
+            frmAdministrador admin = null;
+            foreach (Form open in Application.OpenForms)
+            {
+                if (open is frmAdministrador)
+                {
+                    admin = (frmAdministrador)open;
+                    break;
+                }
+            }
+
+            if (admin == null)
+            {
+                admin = new frmAdministrador(nombreUsuario, rolUsuario);
+                // When admin closes, show this principal again
+                admin.FormClosed += (s, e) => { try { this.Show(); } catch { } };
+                // Hide principal and show admin non-modally
+                this.Hide();
+                admin.Show();
+            }
+            else
+            {
+                // If admin exists, bring to front. If it was hidden, show it.
+                if (!admin.Visible)
+                {
+                    this.Hide();
+                    admin.Show();
+                }
+                admin.BringToFront();
+                admin.Activate();
             }
         }
     }
