@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 
 namespace pryDiesenbergERP_19052026
@@ -64,6 +65,22 @@ namespace pryDiesenbergERP_19052026
                     error = ex.Message;
                 }
             }
+            public static void AuditarAccion(string usuario, string accion)
+            {
+                try
+                {
+                    string sql = "INSERT INTO AuditoriaInicioSesion (FechayHora, Usuario, Accion) " + "VALUES (#" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "#, '" + usuario + "', '" + accion + "')";
+                    OleDbCommand cmd = new OleDbCommand(sql, conexion);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+
+                    error = ex.Message;
+                }
+            }
+
         }
     }
 }

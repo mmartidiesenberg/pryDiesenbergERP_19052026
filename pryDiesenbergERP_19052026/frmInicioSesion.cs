@@ -50,7 +50,7 @@ namespace pryDiesenbergERP_19052026
 
                 else if (perfil == "Recursos Humanos")
                 {
-                    frmRRHH RecursosHumanos = new frmRRHH();
+                    frmRRHH RecursosHumanos = new frmRRHH(usuario, perfil);
                     RecursosHumanos.ShowDialog();
                     this.Close();
                 }

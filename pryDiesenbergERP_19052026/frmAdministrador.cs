@@ -49,7 +49,7 @@ namespace pryDiesenbergERP_19052026
         {
             clsAuditoria.RegistrarInicioSesion(nombreUsuario, false, "Ingresó a RRHH");
 
-            frmRRHH r = new frmRRHH();
+            frmRRHH r = new frmRRHH(nombreUsuario, rolUsuario);
             r.ShowDialog();
         }
 
