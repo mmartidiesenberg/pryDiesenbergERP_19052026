@@ -41,6 +41,7 @@ namespace pryDiesenbergERP_19052026
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+
             clsConexion.ConexionBD.Conectar();
             DataTable tabla = clsConexion.ConexionBD.Consultar("SELECT * FROM Usuario" +
                          " WHERE Gmail = '" + txtUsuario.Text + "'" +
@@ -81,6 +82,7 @@ namespace pryDiesenbergERP_19052026
                 {
                     this.Close();
                 }
+
             }
 
             if (!string.IsNullOrEmpty(clsConexion.ConexionBD.error))
