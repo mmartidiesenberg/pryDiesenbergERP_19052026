@@ -27,7 +27,7 @@ namespace pryDiesenbergERP_19052026
             clsConexion.ConexionBD.Desconectar();
             clsConexion.ConexionBD.Conectar();
 
-            if (cmbUsuario.SelectedItem == null)
+            if (cmbPerfil.SelectedItem == null)
             {
                 MessageBox.Show("Seleccione un Perfil");
                 return;
@@ -35,7 +35,7 @@ namespace pryDiesenbergERP_19052026
 
             string nombre = txtNombre.Text.Trim();
             string apellido = txtApellido.Text.Trim();
-            string perfilNuevo = cmbUsuario.SelectedItem.ToString();
+            string perfilNuevo = cmbPerfil.SelectedItem.ToString();
             string dni = txtDNI.Text.Trim();
             string provincia = cmbProvincia.Text;
             string localidad = cmbLocalidad.Text;
@@ -82,9 +82,16 @@ namespace pryDiesenbergERP_19052026
 
         private void frmRRHH_Load(object sender, EventArgs e)
         {
+            cmbPerfil.Items.Clear();
+
+            cmbPerfil.Items.Add("Administrador");
+            cmbPerfil.Items.Add("Recursos Humanos");
+            cmbPerfil.Items.Add("Usuario");
+
+            cmbPerfil.SelectedIndex = 0;
+
             if (clsConexion.ConexionBD.Conectar())
             {
-                // Provincias
                 DataTable tablaProvincias =
                     clsConexion.ConexionBD.Consultar(
                     "SELECT * FROM Provincias");
@@ -93,18 +100,24 @@ namespace pryDiesenbergERP_19052026
                 cmbProvincia.DisplayMember = "Provincia";
                 cmbProvincia.ValueMember = "Id_Provincia";
 
-                // Localidades
                 DataTable tablaLocalidades =
                     clsConexion.ConexionBD.Consultar(
                     "SELECT * FROM Localidades");
-
                 cmbLocalidad.DataSource = tablaLocalidades;
                 cmbLocalidad.DisplayMember = "Localidades";
                 cmbLocalidad.ValueMember = "Id_Localidades";
+
             }
-            else
+            DataTable tablaUsuarios =
+            clsConexion.ConexionBD.Consultar("SELECT Nombre, Apellido FROM Usuario");
+
+            cmbUsuario.Items.Clear();
+
+            foreach (DataRow fila in tablaUsuarios.Rows)
             {
-                MessageBox.Show(clsConexion.ConexionBD.error);
+                cmbUsuario.Items.Add(
+                    fila["Nombre"].ToString() + " " +
+                    fila["Apellido"].ToString());
             }
         }
     }

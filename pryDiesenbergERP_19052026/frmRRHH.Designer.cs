@@ -49,6 +49,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbUsuario = new System.Windows.Forms.ComboBox();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.lblPerfil = new System.Windows.Forms.Label();
+            this.cmbPerfil = new System.Windows.Forms.ComboBox();
             this.gbDatos.SuspendLayout();
             this.gbDomicilio.SuspendLayout();
             this.gbEliminar.SuspendLayout();
@@ -56,6 +58,8 @@
             // 
             // gbDatos
             // 
+            this.gbDatos.Controls.Add(this.cmbPerfil);
+            this.gbDatos.Controls.Add(this.lblPerfil);
             this.gbDatos.Controls.Add(this.txtNombre);
             this.gbDatos.Controls.Add(this.txtApellido);
             this.gbDatos.Controls.Add(this.txtDNI);
@@ -67,7 +71,7 @@
             this.gbDatos.Margin = new System.Windows.Forms.Padding(6);
             this.gbDatos.Name = "gbDatos";
             this.gbDatos.Padding = new System.Windows.Forms.Padding(6);
-            this.gbDatos.Size = new System.Drawing.Size(530, 363);
+            this.gbDatos.Size = new System.Drawing.Size(530, 459);
             this.gbDatos.TabIndex = 0;
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Datos Personales";
@@ -271,6 +275,35 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
+            // lblPerfil
+            // 
+            this.lblPerfil.AutoSize = true;
+            this.lblPerfil.Location = new System.Drawing.Point(22, 374);
+            this.lblPerfil.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblPerfil.Name = "lblPerfil";
+            this.lblPerfil.Size = new System.Drawing.Size(76, 31);
+            this.lblPerfil.TabIndex = 11;
+            this.lblPerfil.Text = "Perfil";
+            // 
+            // cmbPerfil
+            // 
+            this.cmbPerfil.FormattingEnabled = true;
+            this.cmbPerfil.Items.AddRange(new object[] {
+            "Vendedor",
+            "Invitado",
+            "Diseñador",
+            "Recursos Humanos",
+            "Cliente",
+            "Administrador",
+            "Editor",
+            "Programador",
+            "Analista",
+            "Supervisor"});
+            this.cmbPerfil.Location = new System.Drawing.Point(276, 366);
+            this.cmbPerfil.Name = "cmbPerfil";
+            this.cmbPerfil.Size = new System.Drawing.Size(196, 39);
+            this.cmbPerfil.TabIndex = 3;
+            // 
             // frmRRHH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -318,5 +351,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbUsuario;
+        private System.Windows.Forms.ComboBox cmbPerfil;
+        private System.Windows.Forms.Label lblPerfil;
     }
 }
