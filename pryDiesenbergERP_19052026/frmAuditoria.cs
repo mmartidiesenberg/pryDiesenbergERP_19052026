@@ -93,17 +93,21 @@ namespace pryDiesenbergERP_19052026
                 string baseSql = "SELECT FechayHora, NombreUsuario, Acción, IIF(IntentoFallido=0,'SI','NO') AS Ingreso FROM AuditoriaInicioSesion ORDER BY FechayHora DESC";
                 dgvAuditoria.DataSource = clsConexion.ConexionBD.Consultar(baseSql);
 
-                // Cargar sólo emails: combinar emails que estén ya en la auditoría y los Gmail registrados en Usuario
+                // Cargar usuarios para el filtro de auditoría:
+                // - emails que ya estén en auditoría
+                // - Gmail registrados en Usuario
+                // - además, incluir el Nombre + ' ' + Apellido de la tabla Usuario para mostrar usuarios recién creados
                 string sqlUsuarios =
-                    "SELECT DISTINCT NombreUsuario AS Email FROM AuditoriaInicioSesion WHERE NombreUsuario LIKE '%@%' " +
-                    "UNION SELECT DISTINCT Gmail AS Email FROM Usuario WHERE Gmail IS NOT NULL AND Gmail <> '' " +
-                    "ORDER BY Email";
+                    "SELECT DISTINCT NombreUsuario AS Usuario FROM AuditoriaInicioSesion WHERE NombreUsuario LIKE '%@%' " +
+                    "UNION SELECT DISTINCT Gmail AS Usuario FROM Usuario WHERE Gmail IS NOT NULL AND Gmail <> '' " +
+                    "UNION SELECT DISTINCT Nombre & ' ' & Apellido AS Usuario FROM Usuario WHERE Nombre IS NOT NULL AND Nombre <> '' " +
+                    "ORDER BY Usuario";
 
                 DataTable tablaUsuarios = clsConexion.ConexionBD.Consultar(sqlUsuarios);
 
                 cmbUsuario.DataSource = tablaUsuarios;
-                cmbUsuario.DisplayMember = "Email";
-                cmbUsuario.ValueMember = "Email";
+                cmbUsuario.DisplayMember = "Usuario";
+                cmbUsuario.ValueMember = "Usuario";
 
                 // dejar sin selección por defecto
                 cmbUsuario.SelectedIndex = -1;

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnContactos = new System.Windows.Forms.Button();
             this.lblFechaHora = new System.Windows.Forms.Label();
             this.lblPerfil = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
@@ -36,22 +35,10 @@
             this.btnPrincipal = new System.Windows.Forms.Button();
             this.btnRRHH = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnAuditoria = new System.Windows.Forms.Button();
             this.btnEliminarUsuario = new System.Windows.Forms.Button();
+            this.btnAuditoria = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnContactos
-            // 
-            this.btnContactos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContactos.Location = new System.Drawing.Point(66, 33);
-            this.btnContactos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnContactos.Name = "btnContactos";
-            this.btnContactos.Size = new System.Drawing.Size(80, 45);
-            this.btnContactos.TabIndex = 0;
-            this.btnContactos.Text = "Ver contactos";
-            this.btnContactos.UseVisualStyleBackColor = true;
-            this.btnContactos.Click += new System.EventHandler(this.btnContactos_Click);
             // 
             // lblFechaHora
             // 
@@ -102,7 +89,7 @@
             // 
             this.btnPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrincipal.Location = new System.Drawing.Point(233, 33);
-            this.btnPrincipal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPrincipal.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrincipal.Name = "btnPrincipal";
             this.btnPrincipal.Size = new System.Drawing.Size(80, 45);
             this.btnPrincipal.TabIndex = 8;
@@ -114,7 +101,7 @@
             // 
             this.btnRRHH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRRHH.Location = new System.Drawing.Point(66, 126);
-            this.btnRRHH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRRHH.Margin = new System.Windows.Forms.Padding(2);
             this.btnRRHH.Name = "btnRRHH";
             this.btnRRHH.Size = new System.Drawing.Size(80, 45);
             this.btnRRHH.TabIndex = 9;
@@ -127,33 +114,20 @@
             this.groupBox1.Controls.Add(this.btnEliminarUsuario);
             this.groupBox1.Controls.Add(this.btnAuditoria);
             this.groupBox1.Controls.Add(this.btnRRHH);
-            this.groupBox1.Controls.Add(this.btnContactos);
             this.groupBox1.Controls.Add(this.btnPrincipal);
             this.groupBox1.Location = new System.Drawing.Point(20, 160);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(358, 257);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(358, 196);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operaciones";
             // 
-            // btnAuditoria
-            // 
-            this.btnAuditoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAuditoria.Location = new System.Drawing.Point(233, 126);
-            this.btnAuditoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnAuditoria.Name = "btnAuditoria";
-            this.btnAuditoria.Size = new System.Drawing.Size(80, 45);
-            this.btnAuditoria.TabIndex = 10;
-            this.btnAuditoria.Text = "Ver auditoría";
-            this.btnAuditoria.UseVisualStyleBackColor = true;
-            this.btnAuditoria.Click += new System.EventHandler(this.btnAuditoria_Click);
-            // 
             // btnEliminarUsuario
             // 
             this.btnEliminarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarUsuario.Location = new System.Drawing.Point(144, 199);
+            this.btnEliminarUsuario.Location = new System.Drawing.Point(66, 33);
             this.btnEliminarUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminarUsuario.Name = "btnEliminarUsuario";
             this.btnEliminarUsuario.Size = new System.Drawing.Size(80, 45);
@@ -162,11 +136,23 @@
             this.btnEliminarUsuario.UseVisualStyleBackColor = true;
             this.btnEliminarUsuario.Click += new System.EventHandler(this.btnEliminarUsuario_Click);
             // 
+            // btnAuditoria
+            // 
+            this.btnAuditoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAuditoria.Location = new System.Drawing.Point(233, 126);
+            this.btnAuditoria.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAuditoria.Name = "btnAuditoria";
+            this.btnAuditoria.Size = new System.Drawing.Size(80, 45);
+            this.btnAuditoria.TabIndex = 10;
+            this.btnAuditoria.Text = "Ver auditoría";
+            this.btnAuditoria.UseVisualStyleBackColor = true;
+            this.btnAuditoria.Click += new System.EventHandler(this.btnAuditoria_Click);
+            // 
             // frmAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 428);
+            this.ClientSize = new System.Drawing.Size(397, 376);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblSeleccionar);
             this.Controls.Add(this.lblFechaHora);
@@ -183,8 +169,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnContactos;
         private System.Windows.Forms.Label lblFechaHora;
         private System.Windows.Forms.Label lblPerfil;
         private System.Windows.Forms.Label lblUsuario;

@@ -141,6 +141,7 @@
             this.Controls.Add(this.lblUsuario);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmAuditoria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Auditoría";
             this.Load += new System.EventHandler(this.frmAuditoria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuditoria)).EndInit();

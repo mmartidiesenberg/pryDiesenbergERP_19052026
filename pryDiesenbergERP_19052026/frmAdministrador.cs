@@ -21,12 +21,6 @@ namespace pryDiesenbergERP_19052026
             rolUsuario = perfil;
         }
 
-        private void btnContactos_Click(object sender, EventArgs e)
-        {
-            clsAuditoria.RegistrarInicioSesion(nombreUsuario, false, "Ingresó a contactos");
-            frmContacto x = new frmContacto();  
-            x.ShowDialog();
-        }
 
         private void frmAdministrador_Load(object sender, EventArgs e)
         {
