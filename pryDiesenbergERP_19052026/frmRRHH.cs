@@ -169,6 +169,16 @@ namespace pryDiesenbergERP_19052026
                 MessageBox.Show("Error en frmRRHH_Load:\n" + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            // Asegurar que los controles de Perfil estén visibles y habilitados para carga
+            try
+            {
+                cmbPerfil.Visible = true;
+                cmbPerfil.Enabled = true;
+                lblPerfil.Visible = true;
+                lblPerfil.Enabled = true;
+            }
+            catch { }
+
             // Vincular boton VolverAdmin si existe
             var found = this.Controls.Find("btnVolverAdmin", true);
             if (found.Length > 0 && found[0] is Button btn)
@@ -213,6 +223,44 @@ namespace pryDiesenbergERP_19052026
         private void cmbPerfil_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allow digits, control chars (backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("DNI: Sólo se permiten números.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allow letters, spaces, control chars
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+                MessageBox.Show("Nombre: Sólo se permiten letras.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+                MessageBox.Show("Apellido: Sólo se permiten letras.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void mskTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Teléfono: Sólo se permiten números.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
