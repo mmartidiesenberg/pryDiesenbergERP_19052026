@@ -117,21 +117,37 @@ namespace pryDiesenbergERP_19052026
 
         private void TsmiCerrarSesion_Click(object sender, EventArgs e)
         {
-            // Simular cerrar sesión: volver al frmInicioSesion y limpiar campos
+            // Cerrar todas las ventanas abiertas excepto el frmInicioSesion.
+            // Copiamos la lista para poder cerrar sin modificar la colección mientras iteramos.
+            var openForms = Application.OpenForms.Cast<Form>().ToList();
             Form loginForm = null;
-            foreach (Form open in Application.OpenForms)
+
+            foreach (var open in openForms)
             {
                 if (open is frmInicioSesion)
                 {
                     loginForm = open;
-                    break;
+                    continue;
                 }
+
+                try
+                {
+                    open.Close();
+                }
+                catch { }
             }
 
             if (loginForm != null)
             {
-                ((frmInicioSesion)loginForm).ClearFields();
-                loginForm.Show();
+                try
+                {
+                    ((frmInicioSesion)loginForm).ClearFields();
+                    loginForm.Show();
+                }
+                catch
+                {
+                    loginForm.Show();
+                }
             }
             else
             {
@@ -139,7 +155,8 @@ namespace pryDiesenbergERP_19052026
                 login.Show();
             }
 
-            this.Close();
+            // Cerrar this (frmPrincipal) si aún sigue abierto
+            try { this.Close(); } catch { }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

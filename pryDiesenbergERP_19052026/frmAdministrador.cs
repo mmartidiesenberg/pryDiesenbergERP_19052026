@@ -42,15 +42,19 @@ namespace pryDiesenbergERP_19052026
         private void btnPrincipal_Click(object sender, EventArgs e)
         {
             frmPrincipal a = new frmPrincipal(nombreUsuario, rolUsuario);
-            a.ShowDialog();
+            // When the principal closes, show this admin form again
+            a.FormClosed += (s, args) => { try { this.Show(); } catch { } };
+            this.Hide();
+            a.Show();
         }
 
         private void btnRRHH_Click(object sender, EventArgs e)
         {
             clsAuditoria.RegistrarInicioSesion(nombreUsuario, false, "Ingresó a RRHH");
-
             frmRRHH r = new frmRRHH(nombreUsuario, rolUsuario);
-            r.ShowDialog();
+            r.FormClosed += (s, args) => { try { this.Show(); } catch { } };
+            this.Hide();
+            r.Show();
         }
 
         private void btnAuditoria_Click(object sender, EventArgs e)

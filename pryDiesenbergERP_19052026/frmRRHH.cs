@@ -35,13 +35,13 @@ namespace pryDiesenbergERP_19052026
 
             string nombre = txtNombre.Text.Trim();
             string apellido = txtApellido.Text.Trim();
-            string perfilNuevo = cmbPerfil.SelectedItem.ToString();
+            int idPerfil = Convert.ToInt32(cmbPerfil.SelectedValue);
             int dni = int.Parse(txtDNI.Text.Trim());
             string provincia = ((DataRowView)cmbProvincia.SelectedItem)["Provincia"].ToString();
             string localidad = ((DataRowView)cmbLocalidad.SelectedItem)["Localidades"].ToString();
             string direccion = txtDireccion.Text.Trim();
 
-            string sql = "INSERT INTO [Usuario] ([Nombre], [Apellido], [Perfil], [DNI], [Provincia], [Localidad], [Direccion], [Gmail], [Contrasenia], [Telefono]) " +
+            string sql = "INSERT INTO [Usuario] ([Nombre], [Apellido], [Id_Perfil], [DNI], [Provincia], [Localidad], [Direccion], [Gmail], [Contrasenia], [Telefono]) " +
                          "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             try
@@ -49,7 +49,7 @@ namespace pryDiesenbergERP_19052026
                 var cmd = new System.Data.OleDb.OleDbCommand(sql, clsConexion.ConexionBD.conexion);
                 cmd.Parameters.AddWithValue("?", nombre);
                 cmd.Parameters.AddWithValue("?", apellido);
-                cmd.Parameters.AddWithValue("?", perfilNuevo);
+                cmd.Parameters.AddWithValue("?", idPerfil);
                 cmd.Parameters.AddWithValue("?", dni);
                 cmd.Parameters.AddWithValue("?", provincia);
                 cmd.Parameters.AddWithValue("?", localidad);
@@ -64,7 +64,7 @@ namespace pryDiesenbergERP_19052026
                 MessageBox.Show("Usuario Agregado Correctamente", "Éxito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Limpiar campos solo si el INSERT fue exitoso
+                // Limpiar campos
                 txtNombre.Text = string.Empty;
                 txtApellido.Text = string.Empty;
                 txtDNI.Text = string.Empty;
@@ -73,6 +73,7 @@ namespace pryDiesenbergERP_19052026
                 cmbProvincia.SelectedIndex = 0;
                 cmbLocalidad.SelectedIndex = 0;
                 txtNombre.Focus();
+                txtGEO.Text = string.Empty;
             }
             catch (Exception ex)
             {
@@ -83,19 +84,22 @@ namespace pryDiesenbergERP_19052026
       
         private void frmRRHH_Load(object sender, EventArgs e)
         {
-            cmbPerfil.Items.Clear();
-            cmbPerfil.Items.Add("Administrador");
-            cmbPerfil.Items.Add("Recursos Humanos");
-            cmbPerfil.Items.Add("Usuario");
-            cmbPerfil.SelectedIndex = 0;
-
             if (clsConexion.ConexionBD.Conectar())
             {
+                // Cargar perfiles desde la BD
+                DataTable tablaPerfiles = clsConexion.ConexionBD.Consultar("SELECT Id_Perfil, Perfil FROM Perfil");
+                cmbPerfil.DataSource = tablaPerfiles;
+                cmbPerfil.DisplayMember = "Perfil";
+                cmbPerfil.ValueMember = "Id_Perfil";
+                cmbPerfil.SelectedIndex = 0;
+
+                // Cargar provincias
                 DataTable tablaProvincias = clsConexion.ConexionBD.Consultar("SELECT * FROM Provincias");
                 cmbProvincia.DataSource = tablaProvincias;
                 cmbProvincia.DisplayMember = "Provincia";
                 cmbProvincia.ValueMember = "Id_Provincia";
 
+                // Cargar localidades
                 DataTable tablaLocalidades = clsConexion.ConexionBD.Consultar("SELECT * FROM Localidades");
                 cmbLocalidad.DataSource = tablaLocalidades;
                 cmbLocalidad.DisplayMember = "Localidades";
@@ -141,6 +145,11 @@ namespace pryDiesenbergERP_19052026
         {
             frmEliminarUsuario b = new frmEliminarUsuario(usuario, perfil);
             b.ShowDialog();
+        }
+
+        private void cmbPerfil_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

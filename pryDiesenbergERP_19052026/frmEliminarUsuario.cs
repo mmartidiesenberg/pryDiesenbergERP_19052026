@@ -31,14 +31,24 @@ namespace pryDiesenbergERP_19052026
         {
             clsConexion.ConexionBD.Desconectar();
             clsConexion.ConexionBD.Conectar();
+            // Traer Id y un nombre completo para manejar eliminaciones por Id
             DataTable tablaUsuarios = clsConexion.ConexionBD.Consultar(
-                "SELECT Nombre, Apellido FROM Usuario");
+                "SELECT Id_Usuario, Nombre & ' ' & Apellido AS FullName FROM Usuario");
             cmbUsuario.Items.Clear();
+            if (tablaUsuarios.Rows.Count == 0)
+            {
+                cmbUsuario.Items.Add("(Sin usuarios)");
+                cmbUsuario.SelectedIndex = 0;
+                return;
+            }
+
             foreach (DataRow fila in tablaUsuarios.Rows)
             {
-                cmbUsuario.Items.Add(
-                    fila["Nombre"].ToString() + " " + fila["Apellido"].ToString());
+                // Guardamos el Id en el ValueMember si fuera un control con DataSource,
+                // como workaround almacenamos "Id|FullName" en el item de texto.
+                cmbUsuario.Items.Add(fila["Id_Usuario"].ToString() + "|" + fila["FullName"].ToString());
             }
+            cmbUsuario.SelectedIndex = 0;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -51,9 +61,16 @@ namespace pryDiesenbergERP_19052026
             }
 
             string usuarioSeleccionado = cmbUsuario.SelectedItem.ToString();
-            string[] datos = usuarioSeleccionado.Split(' ');
-            string nombre = datos[0];
-            string apellido = datos[1];
+            // Recuperar Id y nombre completo del item almacenado como "Id|FullName"
+            if (!usuarioSeleccionado.Contains("|"))
+            {
+                MessageBox.Show("No hay usuarios para eliminar.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var parts = usuarioSeleccionado.Split(new char[] { '|' }, 2);
+            int idUsuario = Convert.ToInt32(parts[0]);
+            string nombreCompleto = parts[1];
 
             DialogResult resultado = MessageBox.Show(
                 "¿Está seguro que desea eliminar a " + usuarioSeleccionado + "?",
@@ -67,32 +84,19 @@ namespace pryDiesenbergERP_19052026
                     clsConexion.ConexionBD.Desconectar();
                     clsConexion.ConexionBD.Conectar();
 
-                    // 1. Obtener el ID del usuario
-                    string sqlId = "SELECT Id_Usuario FROM Usuario WHERE Nombre = ? AND Apellido = ?";
-                    var cmdId = new OleDbCommand(sqlId, clsConexion.ConexionBD.conexion);
-                    cmdId.Parameters.AddWithValue("?", nombre);
-                    cmdId.Parameters.AddWithValue("?", apellido);
-                    object idObj = cmdId.ExecuteScalar();
+                    // 2. Eliminar registros relacionados en Usuario-Perfil usando Id
+                    string sqlRelacion = "DELETE FROM [Usuario-Perfil] WHERE Id_Usuario = ?";
+                    var cmdRelacion = new OleDbCommand(sqlRelacion, clsConexion.ConexionBD.conexion);
+                    cmdRelacion.Parameters.AddWithValue("?", idUsuario);
+                    cmdRelacion.ExecuteNonQuery();
 
-                    if (idObj != null)
-                    {
-                        int idUsuario = Convert.ToInt32(idObj);
-
-                        // 2. Eliminar registros relacionados en Usuario-Perfil
-                        string sqlRelacion = "DELETE FROM [Usuario-Perfil] WHERE Id_Usuario = ?";
-                        var cmdRelacion = new OleDbCommand(sqlRelacion, clsConexion.ConexionBD.conexion);
-                        cmdRelacion.Parameters.AddWithValue("?", idUsuario);
-                        cmdRelacion.ExecuteNonQuery();
-                    }
-
-                    // 3. Eliminar el usuario
-                    string sqlDelete = "DELETE FROM Usuario WHERE Nombre = ? AND Apellido = ?";
+                    // 3. Eliminar el usuario por Id
+                    string sqlDelete = "DELETE FROM Usuario WHERE Id_Usuario = ?";
                     var cmdDelete = new OleDbCommand(sqlDelete, clsConexion.ConexionBD.conexion);
-                    cmdDelete.Parameters.AddWithValue("?", nombre);
-                    cmdDelete.Parameters.AddWithValue("?", apellido);
+                    cmdDelete.Parameters.AddWithValue("?", idUsuario);
                     cmdDelete.ExecuteNonQuery();
 
-                    clsConexion.ConexionBD.AuditarAccion(usuario, "Eliminó al usuario: " + usuarioSeleccionado);
+                    clsConexion.ConexionBD.AuditarAccion(usuario, "Eliminó al usuario: " + nombreCompleto);
 
                     MessageBox.Show("Usuario eliminado correctamente.", "Éxito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
