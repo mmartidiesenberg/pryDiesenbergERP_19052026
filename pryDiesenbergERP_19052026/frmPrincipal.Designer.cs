@@ -39,7 +39,6 @@
             this.btnVolverAdmin = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsUserMenu = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tsmiDatos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiModificarPass = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiFuncionalidades = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiCerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
@@ -123,7 +122,6 @@
             // 
             // toolStrip1
             // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Top;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsUserMenu});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -136,38 +134,31 @@
             // 
             this.tsUserMenu.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsUserMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiDatos,
             this.tsmiModificarPass,
             this.tsmiFuncionalidades,
             this.tsmiCerrarSesion});
             this.tsUserMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsUserMenu.Name = "tsUserMenu";
-            this.tsUserMenu.Size = new System.Drawing.Size(91, 22);
+            this.tsUserMenu.Size = new System.Drawing.Size(98, 22);
             this.tsUserMenu.Text = "Usuario (perfil)";
-            // 
-            // tsmiDatos
-            // 
-            this.tsmiDatos.Name = "tsmiDatos";
-            this.tsmiDatos.Size = new System.Drawing.Size(193, 22);
-            this.tsmiDatos.Text = "Datos Personales";
             // 
             // tsmiModificarPass
             // 
             this.tsmiModificarPass.Name = "tsmiModificarPass";
-            this.tsmiModificarPass.Size = new System.Drawing.Size(193, 22);
+            this.tsmiModificarPass.Size = new System.Drawing.Size(188, 22);
             this.tsmiModificarPass.Text = "Modificar Contraseña";
             // 
             // tsmiFuncionalidades
             // 
             this.tsmiFuncionalidades.Name = "tsmiFuncionalidades";
-            this.tsmiFuncionalidades.Size = new System.Drawing.Size(193, 22);
+            this.tsmiFuncionalidades.Size = new System.Drawing.Size(188, 22);
             this.tsmiFuncionalidades.Text = "Funcionalidades";
             this.tsmiFuncionalidades.Click += new System.EventHandler(this.TsmiFuncionalidades_Click);
             // 
             // tsmiCerrarSesion
             // 
             this.tsmiCerrarSesion.Name = "tsmiCerrarSesion";
-            this.tsmiCerrarSesion.Size = new System.Drawing.Size(193, 22);
+            this.tsmiCerrarSesion.Size = new System.Drawing.Size(188, 22);
             this.tsmiCerrarSesion.Text = "Cerrar sesión";
             // 
             // frmPrincipal
@@ -208,7 +199,6 @@
         private System.Windows.Forms.Button btnVolverAdmin;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripDropDownButton tsUserMenu;
-        private System.Windows.Forms.ToolStripMenuItem tsmiDatos;
         private System.Windows.Forms.ToolStripMenuItem tsmiModificarPass;
         private System.Windows.Forms.ToolStripMenuItem tsmiFuncionalidades;
         private System.Windows.Forms.ToolStripMenuItem tsmiCerrarSesion;

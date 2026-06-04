@@ -60,11 +60,10 @@ namespace pryDiesenbergERP_19052026
                 
                 // Mostrar siempre el frmPrincipal para todos los perfiles
                 frmPrincipal Principal = new frmPrincipal(nombreCompleto, perfil);
+                // Cuando se cierre el principal, limpiar campos y mostrar el login nuevamente
+                Principal.FormClosed += (s, args) => { try { this.ClearFields(); this.Show(); } catch { } };
                 this.Hide();
-                Principal.ShowDialog();
-                // Al cerrar Principal, volver al login
-                this.ClearFields();
-                this.Show();
+                Principal.Show();
             }
             else
             {

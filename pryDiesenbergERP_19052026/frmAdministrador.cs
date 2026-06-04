@@ -58,5 +58,11 @@ namespace pryDiesenbergERP_19052026
             frmAuditoria q = new frmAuditoria();    
             q.ShowDialog(); 
         }
+
+        private void btnEliminarUsuario_Click(object sender, EventArgs e)
+        {
+            frmEliminarUsuario b = new frmEliminarUsuario   (nombreUsuario, rolUsuario);
+            b.ShowDialog();
+        }
     }
 }

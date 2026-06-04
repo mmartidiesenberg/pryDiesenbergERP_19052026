@@ -85,9 +85,6 @@ namespace pryDiesenbergERP_19052026
             tsmiCerrarSesion.Click -= TsmiCerrarSesion_Click;
             tsmiCerrarSesion.Click += TsmiCerrarSesion_Click;
 
-            tsmiDatos.Click -= TsmiDatos_Click;
-            tsmiDatos.Click += TsmiDatos_Click;
-
             tsmiModificarPass.Click -= TsmiModificarPass_Click;
             tsmiModificarPass.Click += TsmiModificarPass_Click;
 
@@ -195,11 +192,55 @@ namespace pryDiesenbergERP_19052026
         {
             try
             {
-                ShowAdministrator();
+                // Abrir según el perfil del usuario
+                if (rolUsuario == "Administrador")
+                {
+                    ShowAdministrator();
+                }
+                else if (rolUsuario == "Recursos Humanos")
+                {
+                    ShowRRHH();
+                }
+                else
+                {
+                    MessageBox.Show("Solo podes ver el menu principal", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al abrir Administrador desde Funcionalidades: " + ex.Message);
+                MessageBox.Show("Error al abrir funcionalidades: " + ex.Message);
+            }
+        }
+
+        private void ShowRRHH()
+        {
+            // Find existing RRHH form
+            frmRRHH rrhh = null;
+            foreach (Form open in Application.OpenForms)
+            {
+                if (open is frmRRHH)
+                {
+                    rrhh = (frmRRHH)open;
+                    break;
+                }
+            }
+
+            if (rrhh == null)
+            {
+                rrhh = new frmRRHH(nombreUsuario, rolUsuario);
+                rrhh.FormClosed += (s, e) => { try { this.Show(); } catch { } };
+                this.Hide();
+                rrhh.Show();
+            }
+            else
+            {
+                if (!rrhh.Visible)
+                {
+                    this.Hide();
+                    rrhh.Show();
+                }
+                rrhh.BringToFront();
+                rrhh.Activate();
             }
         }
 

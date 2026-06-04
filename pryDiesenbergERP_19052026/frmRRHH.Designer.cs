@@ -48,6 +48,8 @@
             this.lblDireccion = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnVolverAdmin = new System.Windows.Forms.Button();
+            this.btnEliminarUsuario = new System.Windows.Forms.Button();
+            this.lblEliminarUsuario = new System.Windows.Forms.Label();
             this.gbDatos.SuspendLayout();
             this.gbDomicilio.SuspendLayout();
             this.SuspendLayout();
@@ -248,7 +250,7 @@
             // 
             // btnVolverAdmin
             // 
-            this.btnVolverAdmin.Location = new System.Drawing.Point(228, 326);
+            this.btnVolverAdmin.Location = new System.Drawing.Point(21, 374);
             this.btnVolverAdmin.Name = "btnVolverAdmin";
             this.btnVolverAdmin.Size = new System.Drawing.Size(140, 23);
             this.btnVolverAdmin.TabIndex = 50;
@@ -256,11 +258,35 @@
             this.btnVolverAdmin.UseVisualStyleBackColor = true;
             this.btnVolverAdmin.Click += new System.EventHandler(this.BtnVolverAdmin_Click);
             // 
+            // btnEliminarUsuario
+            // 
+            this.btnEliminarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarUsuario.Location = new System.Drawing.Point(301, 267);
+            this.btnEliminarUsuario.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEliminarUsuario.Name = "btnEliminarUsuario";
+            this.btnEliminarUsuario.Size = new System.Drawing.Size(80, 45);
+            this.btnEliminarUsuario.TabIndex = 51;
+            this.btnEliminarUsuario.Text = "Eliminar Usuario";
+            this.btnEliminarUsuario.UseVisualStyleBackColor = true;
+            this.btnEliminarUsuario.Click += new System.EventHandler(this.btnEliminarUsuario_Click);
+            // 
+            // lblEliminarUsuario
+            // 
+            this.lblEliminarUsuario.AutoSize = true;
+            this.lblEliminarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEliminarUsuario.Location = new System.Drawing.Point(28, 281);
+            this.lblEliminarUsuario.Name = "lblEliminarUsuario";
+            this.lblEliminarUsuario.Size = new System.Drawing.Size(268, 16);
+            this.lblEliminarUsuario.TabIndex = 52;
+            this.lblEliminarUsuario.Text = "Si desea eliminar un usuario haga click acá:";
+            // 
             // frmRRHH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 385);
+            this.ClientSize = new System.Drawing.Size(638, 409);
+            this.Controls.Add(this.lblEliminarUsuario);
+            this.Controls.Add(this.btnEliminarUsuario);
             this.Controls.Add(this.btnVolverAdmin);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.gbDomicilio);
@@ -274,6 +300,7 @@
             this.gbDomicilio.ResumeLayout(false);
             this.gbDomicilio.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -299,5 +326,7 @@
         private System.Windows.Forms.ComboBox cmbPerfil;
         private System.Windows.Forms.Label lblPerfil;
         private System.Windows.Forms.Button btnVolverAdmin;
+        private System.Windows.Forms.Button btnEliminarUsuario;
+        private System.Windows.Forms.Label lblEliminarUsuario;
     }
 }
