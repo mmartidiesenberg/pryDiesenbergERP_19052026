@@ -24,8 +24,11 @@ namespace pryDiesenbergERP_19052026
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            clsConexion.ConexionBD.Desconectar();
-            clsConexion.ConexionBD.Conectar();
+            if (clsConexion.ConexionBD.conexion == null ||
+        clsConexion.ConexionBD.conexion.State == System.Data.ConnectionState.Closed)
+            {
+                clsConexion.ConexionBD.Conectar();
+            }
 
             if (cmbPerfil.SelectedItem == null)
             {
@@ -35,60 +38,39 @@ namespace pryDiesenbergERP_19052026
 
             string nombre = txtNombre.Text.Trim();
             string apellido = txtApellido.Text.Trim();
-            if (cmbPerfil.SelectedValue == null)
-            {
-                MessageBox.Show("Perfil inválido.");
-                return;
-            }
+            string perfilTexto = (cmbPerfil.SelectedItem as DataRowView)?["Perfil"].ToString() ?? string.Empty;
 
-            int idPerfil = Convert.ToInt32(cmbPerfil.SelectedValue);
-
-            int dni;
-            if (!int.TryParse(txtDNI.Text.Trim(), out dni))
+            if (!int.TryParse(txtDNI.Text.Trim(), out int dni))
             {
                 MessageBox.Show("DNI inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            // Prefer the display text from the bound DataRowView (Provincia/Localidades). If not available, fall back to SelectedValue.
-            string provincia = string.Empty;
-            string localidad = string.Empty;
-            try
-            {
-                var drvProv = cmbProvincia.SelectedItem as DataRowView;
-                if (drvProv != null) provincia = drvProv["Provincia"].ToString();
-                else provincia = cmbProvincia.SelectedValue?.ToString() ?? string.Empty;
 
-                var drvLoc = cmbLocalidad.SelectedItem as DataRowView;
-                if (drvLoc != null) localidad = drvLoc["Localidades"].ToString();
-                else localidad = cmbLocalidad.SelectedValue?.ToString() ?? string.Empty;
-            }
-            catch
-            {
-                provincia = cmbProvincia.SelectedValue?.ToString() ?? string.Empty;
-                localidad = cmbLocalidad.SelectedValue?.ToString() ?? string.Empty;
-            }
+            string provincia = (cmbProvincia.SelectedItem as DataRowView)?["Provincia"].ToString() ?? string.Empty;
+            string localidad = (cmbLocalidad.SelectedItem as DataRowView)?["Localidades"].ToString() ?? string.Empty;
             string direccion = txtDireccion.Text.Trim();
             string gmail = txtGmail.Text.Trim();
             string telefono = mskTelefono.Text.Trim();
-            string redSocial = (cmbRedes.SelectedItem != null) ? cmbRedes.SelectedItem.ToString() : string.Empty;
+            string redSocial = cmbRedes.SelectedItem?.ToString() ?? string.Empty;
             bool activo = chkActivo.Checked;
             string password = txtContrasenia.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(gmail) || string.IsNullOrWhiteSpace(password))
             {
-                MessageBox.Show("Debe ingresar Gmail y Password para el usuario.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Debe ingresar Gmail y Password.", "Validación",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
             string sql = "INSERT INTO [Usuario] ([Nombre], [Apellido], [Perfil], [DNI], [Provincia], [Localidad], [Direccion], [Gmail], [Telefono], [Red Social], [Activo], [Contrasenia]) " +
-             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                         "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             try
             {
                 var cmd = new System.Data.OleDb.OleDbCommand(sql, clsConexion.ConexionBD.conexion);
                 cmd.Parameters.AddWithValue("?", nombre);
                 cmd.Parameters.AddWithValue("?", apellido);
-                cmd.Parameters.AddWithValue("?", idPerfil);
+                cmd.Parameters.AddWithValue("?", perfilTexto);
                 cmd.Parameters.AddWithValue("?", dni);
                 cmd.Parameters.AddWithValue("?", provincia);
                 cmd.Parameters.AddWithValue("?", localidad);
@@ -105,19 +87,15 @@ namespace pryDiesenbergERP_19052026
                 MessageBox.Show("Usuario Agregado Correctamente", "Éxito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Limpiar campos
                 txtNombre.Text = string.Empty;
                 txtApellido.Text = string.Empty;
                 txtDNI.Text = string.Empty;
                 txtDireccion.Text = string.Empty;
                 txtGmail.Text = string.Empty;
-                // Limpiar teléfono (masked) y redes
+                txtContrasenia.Text = string.Empty;
                 try { mskTelefono.Text = string.Empty; } catch { }
                 try { cmbRedes.SelectedIndex = -1; } catch { }
                 chkActivo.Checked = false;
-                cmbPerfil.SelectedIndex = 0;
-                cmbProvincia.SelectedIndex = 0;
-                cmbLocalidad.SelectedIndex = 0;
                 txtNombre.Focus();
             }
             catch (Exception ex)
