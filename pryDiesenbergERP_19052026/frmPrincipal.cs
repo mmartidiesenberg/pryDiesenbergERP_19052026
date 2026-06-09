@@ -32,7 +32,6 @@ namespace pryDiesenbergERP_19052026
                 lblPerfil.Text = rolUsuario;
                 lblFechaHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
 
-                // Update user menu text
                 tsUserMenu.Text = nombreUsuario + " ▼";
             }
             else
@@ -42,7 +41,6 @@ namespace pryDiesenbergERP_19052026
                 MessageBox.Show(clsConexion.ConexionBD.error);
             }
 
-            // Vincular evento del botón Volver/Salir buscando el control por nombre (soporta btnVolver o btnSalir)
             Button btn = null;
             var found = this.Controls.Find("btnVolver", true);
             if (found.Length > 0) btn = found[0] as Button;
@@ -58,7 +56,6 @@ namespace pryDiesenbergERP_19052026
                 btn.Click += btnSalir_Click;
             }
 
-            // Configurar btnVolverAdmin: visible solo para Administrador and hide regular volver
             var foundAdminBtn = this.Controls.Find("btnVolverAdmin", true);
             var foundVolverBtn = this.Controls.Find("btnVolver", true);
             Button btnAdmin = (foundAdminBtn.Length > 0) ? foundAdminBtn[0] as Button : null;
@@ -81,7 +78,6 @@ namespace pryDiesenbergERP_19052026
                 btnVolver.Click += btnSalir_Click;
             }
 
-            // Wire user menu
             tsmiCerrarSesion.Click -= TsmiCerrarSesion_Click;
             tsmiCerrarSesion.Click += TsmiCerrarSesion_Click;
 
@@ -91,18 +87,7 @@ namespace pryDiesenbergERP_19052026
             tsmiFuncionalidades.Click -= TsmiFuncionalidades_Click;
             tsmiFuncionalidades.Click += TsmiFuncionalidades_Click;
 
-            // If administrator, optionally open frmAdministrador automatically non-modally
-            if (isAdmin)
-            {
-                try
-                {
-                    ShowAdministrator();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al abrir Administrador automáticamente: " + ex.Message);
-                }
-            }
+         
         }
 
         private void TsmiModificarPass_Click(object sender, EventArgs e)
@@ -231,7 +216,6 @@ namespace pryDiesenbergERP_19052026
 
         private void ShowRRHH()
         {
-            // Find existing RRHH form
             frmRRHH rrhh = null;
             foreach (Form open in Application.OpenForms)
             {
@@ -277,15 +261,12 @@ namespace pryDiesenbergERP_19052026
             if (admin == null)
             {
                 admin = new frmAdministrador(nombreUsuario, rolUsuario);
-                // When admin closes, show this principal again
                 admin.FormClosed += (s, e) => { try { this.Show(); } catch { } };
-                // Hide principal and show admin non-modally
                 this.Hide();
                 admin.Show();
             }
             else
             {
-                // If admin exists, bring to front. If it was hidden, show it.
                 if (!admin.Visible)
                 {
                     this.Hide();

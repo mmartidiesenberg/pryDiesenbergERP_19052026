@@ -240,5 +240,10 @@ namespace pryDiesenbergERP_19052026
                 MessageBox.Show("Teléfono: Sólo se permiten números.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void txtContrasenia_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

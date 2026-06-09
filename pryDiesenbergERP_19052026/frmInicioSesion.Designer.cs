@@ -41,45 +41,51 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(6, 21);
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(12, 100);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(65, 16);
+            this.lblUsuario.Size = new System.Drawing.Size(132, 33);
             this.lblUsuario.TabIndex = 0;
             this.lblUsuario.Text = "Usuario:";
             // 
             // lblContraseña
             // 
             this.lblContraseña.AutoSize = true;
-            this.lblContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContraseña.Location = new System.Drawing.Point(6, 81);
+            this.lblContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContraseña.Location = new System.Drawing.Point(12, 262);
+            this.lblContraseña.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblContraseña.Name = "lblContraseña";
-            this.lblContraseña.Size = new System.Drawing.Size(90, 16);
+            this.lblContraseña.Size = new System.Drawing.Size(184, 33);
             this.lblContraseña.TabIndex = 1;
             this.lblContraseña.Text = "Contraseña:";
             // 
             // txtUsuario
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(133, 18);
+            this.txtUsuario.Location = new System.Drawing.Point(419, 100);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(127, 22);
+            this.txtUsuario.Size = new System.Drawing.Size(250, 37);
             this.txtUsuario.TabIndex = 2;
             // 
             // txtContrasenia
             // 
             this.txtContrasenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasenia.Location = new System.Drawing.Point(160, 78);
+            this.txtContrasenia.Location = new System.Drawing.Point(392, 262);
+            this.txtContrasenia.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtContrasenia.Name = "txtContrasenia";
-            this.txtContrasenia.Size = new System.Drawing.Size(100, 22);
+            this.txtContrasenia.PasswordChar = '*';
+            this.txtContrasenia.Size = new System.Drawing.Size(277, 37);
             this.txtContrasenia.TabIndex = 3;
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngresar.Location = new System.Drawing.Point(160, 155);
+            this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresar.Location = new System.Drawing.Point(469, 384);
+            this.btnIngresar.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(100, 25);
+            this.btnIngresar.Size = new System.Drawing.Size(200, 48);
             this.btnIngresar.TabIndex = 4;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
@@ -92,9 +98,12 @@
             this.gbInicio.Controls.Add(this.txtContrasenia);
             this.gbInicio.Controls.Add(this.lblContraseña);
             this.gbInicio.Controls.Add(this.txtUsuario);
-            this.gbInicio.Location = new System.Drawing.Point(12, 12);
+            this.gbInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbInicio.Location = new System.Drawing.Point(24, 23);
+            this.gbInicio.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.gbInicio.Name = "gbInicio";
-            this.gbInicio.Size = new System.Drawing.Size(288, 197);
+            this.gbInicio.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gbInicio.Size = new System.Drawing.Size(730, 460);
             this.gbInicio.TabIndex = 5;
             this.gbInicio.TabStop = false;
             this.gbInicio.Text = "Iniciar Sesión";
@@ -103,12 +112,13 @@
             // frmInicioSesion
             // 
             this.AcceptButton = this.btnIngresar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(331, 221);
+            this.ClientSize = new System.Drawing.Size(798, 517);
             this.Controls.Add(this.gbInicio);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "frmInicioSesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio Sesión";
