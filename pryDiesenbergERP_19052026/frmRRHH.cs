@@ -14,6 +14,8 @@ namespace pryDiesenbergERP_19052026
     {
         private string usuario;
         private string perfil;
+        private List<string> _direcciones = new List<string>();
+        private List<string> _telefonos = new List<string>();
 
         public frmRRHH(string usuarioLogueado, string perfilUsuario)
         {
@@ -47,12 +49,19 @@ namespace pryDiesenbergERP_19052026
 
             string provincia = (cmbProvincia.SelectedItem as DataRowView)?["Provincia"].ToString() ?? string.Empty;
             string localidad = (cmbLocalidad.SelectedItem as DataRowView)?["Localidades"].ToString() ?? string.Empty;
-            string direccion = txtDireccion.Text.Trim();
             string gmail = txtGmail.Text.Trim();
-            string telefono = mskTelefono.Text.Trim();
             string redSocial = cmbRedes.SelectedItem?.ToString() ?? string.Empty;
             bool activo = chkActivo.Checked;
             string password = txtContrasenia.Text.Trim();
+            // La dirección del campo + las adicionales, unidas con ";"
+            string direccion = txtDireccion.Text.Trim();
+            if (_direcciones.Count > 0)
+                direccion = direccion + ";" + string.Join(";", _direcciones);
+
+            // El teléfono del campo + los adicionales, unidos con ";"
+            string telefono = mskTelefono.Text.Trim();
+            if (_telefonos.Count > 0)
+                telefono = telefono + ";" + string.Join(";", _telefonos);
 
             if (string.IsNullOrWhiteSpace(gmail) || string.IsNullOrWhiteSpace(password))
             {
@@ -86,6 +95,11 @@ namespace pryDiesenbergERP_19052026
                 MessageBox.Show("Usuario Agregado Correctamente", "Éxito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+
+                _direcciones.Clear();
+                _telefonos.Clear();
+                lstDirecciones.Items.Clear();
+                lstTelefonos.Items.Clear();
                 txtNombre.Text = string.Empty;
                 txtApellido.Text = string.Empty;
                 txtDNI.Text = string.Empty;
@@ -106,6 +120,20 @@ namespace pryDiesenbergERP_19052026
       
         private void frmRRHH_Load(object sender, EventArgs e)
         {
+            if (clsConexion.ConexionBD.Conectar())
+            {
+
+                lblEstado.Text = "Base de datos conectada";
+                lblEstado.ForeColor = Color.Green;
+
+            }
+            else
+            {
+                lblEstado.Text = "No se pudo conectar la base de datos";
+                lblEstado.ForeColor = Color.Red;
+                MessageBox.Show(clsConexion.ConexionBD.error);
+
+            }
             try
             {
                 if (clsConexion.ConexionBD.Conectar())
@@ -164,6 +192,18 @@ namespace pryDiesenbergERP_19052026
                 btn.Click += BtnVolverAdmin_Click;
                 btn.Visible = (perfil == "Administrador");
             }
+
+            btnAgregarDireccion.FlatStyle = FlatStyle.Flat;
+            btnAgregarDireccion.FlatAppearance.BorderSize = 0;
+            btnAgregarDireccion.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnAgregarDireccion.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnAgregarDireccion.BackColor = Color.Transparent;
+
+            btnAgregarTelefonos.FlatStyle = FlatStyle.Flat;
+            btnAgregarTelefonos.FlatAppearance.BorderSize = 0;
+            btnAgregarTelefonos.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnAgregarTelefonos.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnAgregarTelefonos.BackColor = Color.Transparent;
         }
 
         private void BtnVolverAdmin_Click(object sender, EventArgs e)
@@ -195,11 +235,6 @@ namespace pryDiesenbergERP_19052026
         {
             frmEliminarUsuario b = new frmEliminarUsuario(usuario, perfil);
             b.ShowDialog();
-        }
-
-        private void cmbPerfil_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
@@ -240,12 +275,84 @@ namespace pryDiesenbergERP_19052026
             }
         }
 
-        private void txtContrasenia_TextChanged(object sender, EventArgs e)
+        private void cmbProvincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var drv = cmbProvincia.SelectedItem as DataRowView;
+                if (drv == null)
+                {
+                    cmbLocalidad.Enabled = false;
+                    try { cmbLocalidad.SelectedIndex = -1; } catch { }
+                    return;
+                }
+
+                string provincia = drv["Provincia"]?.ToString() ?? string.Empty;
+
+                // Habilitar cmbLocalidad únicamente si la provincia es Córdoba (aceptar también "Cordoba" sin tilde)
+                if (string.Equals(provincia.Trim(), "Córdoba", StringComparison.CurrentCultureIgnoreCase) ||
+                    string.Equals(provincia.Trim(), "Cordoba", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    cmbLocalidad.Enabled = true;
+                    if (cmbLocalidad.Items.Count > 0)
+                    {
+                        try { cmbLocalidad.SelectedIndex = 0; } catch { }
+                    }
+                }
+                else
+                {
+                    cmbLocalidad.Enabled = false;
+                    try { cmbLocalidad.SelectedIndex = -1; } catch { }
+                }
+            }
+            catch
+            {
+                // No propagar errores de cambio de selección
+            }
+        }
+
+        private void cmbLocalidad_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void mskTelefono_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        private void gbDomicilio_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregarDireccion_Click(object sender, EventArgs e)
+        {
+            string dir = txtDireccion.Text.Trim();
+            if (string.IsNullOrWhiteSpace(dir))
+            {
+                MessageBox.Show("Ingrese una dirección.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            _direcciones.Add(dir);
+            lstDirecciones.Items.Add(dir);
+            txtDireccion.Text = "";
+        }
+
+        private void btnAgregarTelefonos_Click(object sender, EventArgs e)
+        {
+            string tel = mskTelefono.Text.Trim();
+            if (string.IsNullOrWhiteSpace(tel))
+            {
+                MessageBox.Show("Ingrese un teléfono.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            _telefonos.Add(tel);
+            lstTelefonos.Items.Add(tel);
+            try { mskTelefono.Text = ""; } catch { }
+        }
+
+        private void lstTelefonos_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

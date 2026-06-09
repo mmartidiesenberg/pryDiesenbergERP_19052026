@@ -42,7 +42,9 @@
             this.tsmiModificarPass = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiFuncionalidades = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiCerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip2 = new System.Windows.Forms.StatusStrip();
+            this.lblIngUsuario = new System.Windows.Forms.Label();
+            this.lblIngPerfil = new System.Windows.Forms.Label();
+            this.lblIngFechaHora = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -53,33 +55,32 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.lblEstado});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 779);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 617);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 28, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1170, 42);
+            this.statusStrip1.Size = new System.Drawing.Size(607, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "Estado Conexión BD";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(230, 32);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(113, 17);
             this.toolStripStatusLabel1.Text = "Estado Conexión BD";
             this.toolStripStatusLabel1.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
             // 
             // lblEstado
             // 
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(0, 32);
+            this.lblEstado.Size = new System.Drawing.Size(0, 17);
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(466, 131);
-            this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsuario.Location = new System.Drawing.Point(330, 169);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(108, 31);
+            this.lblUsuario.Size = new System.Drawing.Size(57, 17);
             this.lblUsuario.TabIndex = 1;
             this.lblUsuario.Text = "Usuario";
             // 
@@ -87,10 +88,10 @@
             // 
             this.lblPerfil.AutoSize = true;
             this.lblPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPerfil.Location = new System.Drawing.Point(466, 263);
-            this.lblPerfil.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPerfil.Location = new System.Drawing.Point(330, 235);
+            this.lblPerfil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPerfil.Name = "lblPerfil";
-            this.lblPerfil.Size = new System.Drawing.Size(76, 31);
+            this.lblPerfil.Size = new System.Drawing.Size(40, 17);
             this.lblPerfil.TabIndex = 2;
             this.lblPerfil.Text = "Perfil";
             // 
@@ -98,29 +99,28 @@
             // 
             this.lblFechaHora.AutoSize = true;
             this.lblFechaHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaHora.Location = new System.Drawing.Point(466, 387);
-            this.lblFechaHora.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFechaHora.Location = new System.Drawing.Point(330, 295);
+            this.lblFechaHora.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFechaHora.Name = "lblFechaHora";
-            this.lblFechaHora.Size = new System.Drawing.Size(177, 31);
+            this.lblFechaHora.Size = new System.Drawing.Size(93, 17);
             this.lblFechaHora.TabIndex = 3;
             this.lblFechaHora.Text = "Fecha y Hora";
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(420, 631);
-            this.btnVolver.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnVolver.Location = new System.Drawing.Point(252, 524);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(254, 75);
+            this.btnVolver.Size = new System.Drawing.Size(101, 39);
             this.btnVolver.TabIndex = 4;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnVolverAdmin
             // 
-            this.btnVolverAdmin.Location = new System.Drawing.Point(740, 533);
-            this.btnVolverAdmin.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnVolverAdmin.Location = new System.Drawing.Point(243, 523);
             this.btnVolverAdmin.Name = "btnVolverAdmin";
-            this.btnVolverAdmin.Size = new System.Drawing.Size(236, 77);
+            this.btnVolverAdmin.Size = new System.Drawing.Size(127, 40);
             this.btnVolverAdmin.TabIndex = 5;
             this.btnVolverAdmin.Text = "Volver a Administrador";
             this.btnVolverAdmin.UseVisualStyleBackColor = true;
@@ -132,8 +132,8 @@
             this.tsUserMenu});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(1170, 42);
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.toolStrip1.Size = new System.Drawing.Size(607, 25);
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -146,43 +146,69 @@
             this.tsmiCerrarSesion});
             this.tsUserMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsUserMenu.Name = "tsUserMenu";
-            this.tsUserMenu.Size = new System.Drawing.Size(192, 36);
+            this.tsUserMenu.Size = new System.Drawing.Size(98, 22);
             this.tsUserMenu.Text = "Usuario (perfil)";
             // 
             // tsmiModificarPass
             // 
             this.tsmiModificarPass.Name = "tsmiModificarPass";
-            this.tsmiModificarPass.Size = new System.Drawing.Size(375, 44);
+            this.tsmiModificarPass.Size = new System.Drawing.Size(188, 22);
             this.tsmiModificarPass.Text = "Modificar Contraseña";
             // 
             // tsmiFuncionalidades
             // 
             this.tsmiFuncionalidades.Name = "tsmiFuncionalidades";
-            this.tsmiFuncionalidades.Size = new System.Drawing.Size(375, 44);
+            this.tsmiFuncionalidades.Size = new System.Drawing.Size(188, 22);
             this.tsmiFuncionalidades.Text = "Funcionalidades";
             this.tsmiFuncionalidades.Click += new System.EventHandler(this.TsmiFuncionalidades_Click);
             // 
             // tsmiCerrarSesion
             // 
             this.tsmiCerrarSesion.Name = "tsmiCerrarSesion";
-            this.tsmiCerrarSesion.Size = new System.Drawing.Size(375, 44);
+            this.tsmiCerrarSesion.Size = new System.Drawing.Size(188, 22);
             this.tsmiCerrarSesion.Text = "Cerrar sesión";
             // 
-            // statusStrip2
+            // lblIngUsuario
             // 
-            this.statusStrip2.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.statusStrip2.Location = new System.Drawing.Point(0, 757);
-            this.statusStrip2.Name = "statusStrip2";
-            this.statusStrip2.Size = new System.Drawing.Size(1170, 22);
-            this.statusStrip2.TabIndex = 7;
-            this.statusStrip2.Text = "statusStrip2";
+            this.lblIngUsuario.AutoSize = true;
+            this.lblIngUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIngUsuario.Location = new System.Drawing.Point(96, 168);
+            this.lblIngUsuario.Name = "lblIngUsuario";
+            this.lblIngUsuario.Size = new System.Drawing.Size(72, 18);
+            this.lblIngUsuario.TabIndex = 7;
+            this.lblIngUsuario.Text = "Usuario:";
+            this.lblIngUsuario.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // lblIngPerfil
+            // 
+            this.lblIngPerfil.AutoSize = true;
+            this.lblIngPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIngPerfil.Location = new System.Drawing.Point(96, 235);
+            this.lblIngPerfil.Name = "lblIngPerfil";
+            this.lblIngPerfil.Size = new System.Drawing.Size(52, 18);
+            this.lblIngPerfil.TabIndex = 8;
+            this.lblIngPerfil.Text = "Perfil:";
+            this.lblIngPerfil.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // lblIngFechaHora
+            // 
+            this.lblIngFechaHora.AutoSize = true;
+            this.lblIngFechaHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIngFechaHora.Location = new System.Drawing.Point(96, 295);
+            this.lblIngFechaHora.Name = "lblIngFechaHora";
+            this.lblIngFechaHora.Size = new System.Drawing.Size(218, 18);
+            this.lblIngFechaHora.TabIndex = 9;
+            this.lblIngFechaHora.Text = "Fecha y Horario de Ingreso:";
+            this.lblIngFechaHora.Click += new System.EventHandler(this.label3_Click);
             // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1170, 821);
-            this.Controls.Add(this.statusStrip2);
+            this.ClientSize = new System.Drawing.Size(607, 639);
+            this.Controls.Add(this.lblIngFechaHora);
+            this.Controls.Add(this.lblIngPerfil);
+            this.Controls.Add(this.lblIngUsuario);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.btnVolverAdmin);
             this.Controls.Add(this.btnVolver);
@@ -191,7 +217,6 @@
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.statusStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal ERP";
@@ -220,7 +245,9 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiModificarPass;
         private System.Windows.Forms.ToolStripMenuItem tsmiFuncionalidades;
         private System.Windows.Forms.ToolStripMenuItem tsmiCerrarSesion;
-        private System.Windows.Forms.StatusStrip statusStrip2;
+        private System.Windows.Forms.Label lblIngUsuario;
+        private System.Windows.Forms.Label lblIngPerfil;
+        private System.Windows.Forms.Label lblIngFechaHora;
     }
 }
 

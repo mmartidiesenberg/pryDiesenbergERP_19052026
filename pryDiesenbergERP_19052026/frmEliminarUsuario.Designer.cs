@@ -32,7 +32,10 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbUsuario = new System.Windows.Forms.ComboBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lblEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbEliminar.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbEliminar
@@ -81,18 +84,41 @@
             this.cmbUsuario.Size = new System.Drawing.Size(120, 24);
             this.cmbUsuario.TabIndex = 0;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblEstado});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 235);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 7, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(642, 22);
+            this.statusStrip1.TabIndex = 9;
+            this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(113, 17);
+            this.lblEstado.Text = "Estado Conexión BD";
+            // 
             // frmEliminarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(642, 257);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.gbEliminar);
             this.Name = "frmEliminarUsuario";
             this.Text = "Eliminar Usuario";
             this.Load += new System.EventHandler(this.frmEliminarUsuario_Load);
             this.gbEliminar.ResumeLayout(false);
             this.gbEliminar.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -102,5 +128,7 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbUsuario;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel lblEstado;
     }
 }

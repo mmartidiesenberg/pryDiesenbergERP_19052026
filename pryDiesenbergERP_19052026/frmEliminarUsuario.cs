@@ -24,6 +24,20 @@ namespace pryDiesenbergERP_19052026
         }
         private void frmEliminarUsuario_Load(object sender, EventArgs e)
         {
+            if (clsConexion.ConexionBD.Conectar())
+            {
+
+                lblEstado.Text = "Base de datos conectada";
+                lblEstado.ForeColor = Color.Green;
+
+            }
+            else
+            {
+                lblEstado.Text = "No se pudo conectar la base de datos";
+                lblEstado.ForeColor = Color.Red;
+                MessageBox.Show(clsConexion.ConexionBD.error);
+
+            }
             CargarComboUsuarios();
         }
 
@@ -108,6 +122,11 @@ namespace pryDiesenbergERP_19052026
                     MessageBox.Show("Error al eliminar: " + ex.Message);
                 }
             }
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

@@ -14,12 +14,14 @@ namespace pryDiesenbergERP_19052026
     {
         string nombreUsuario;
         string rolUsuario;
+        private System.Windows.Forms.Timer relojTimer;
 
         public frmPrincipal(string nombre, string perfil)
         {
             InitializeComponent();
             nombreUsuario = nombre; 
             rolUsuario = perfil;
+            this.FormClosed += FrmPrincipal_FormClosed;
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
@@ -30,7 +32,15 @@ namespace pryDiesenbergERP_19052026
                 lblEstado.ForeColor = Color.Green;
                 lblUsuario.Text = nombreUsuario;
                 lblPerfil.Text = rolUsuario;
-                lblFechaHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+                lblFechaHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                // Inicializar y arrancar el timer que actualiza la hora cada segundo
+                if (relojTimer == null)
+                {
+                    relojTimer = new System.Windows.Forms.Timer();
+                    relojTimer.Interval = 1000; // 1 segundo
+                    relojTimer.Tick += RelojTimer_Tick;
+                    relojTimer.Start();
+                }
 
                 tsUserMenu.Text = nombreUsuario + " ▼";
             }
@@ -280,6 +290,50 @@ namespace pryDiesenbergERP_19052026
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RelojTimer_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                lblFechaHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            }
+            catch { }
+        }
+
+        private void FrmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (relojTimer != null)
+            {
+                try
+                {
+                    relojTimer.Stop();
+                    relojTimer.Tick -= RelojTimer_Tick;
+                    relojTimer.Dispose();
+                }
+                catch { }
+                relojTimer = null;
+            }
         }
     }
 }
