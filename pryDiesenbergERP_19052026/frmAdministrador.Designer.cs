@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdministrador));
             this.lblFechaHora = new System.Windows.Forms.Label();
             this.lblPerfil = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
@@ -47,10 +48,10 @@
             // 
             this.lblFechaHora.AutoSize = true;
             this.lblFechaHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaHora.Location = new System.Drawing.Point(32, 158);
-            this.lblFechaHora.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFechaHora.Location = new System.Drawing.Point(16, 82);
+            this.lblFechaHora.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFechaHora.Name = "lblFechaHora";
-            this.lblFechaHora.Size = new System.Drawing.Size(177, 31);
+            this.lblFechaHora.Size = new System.Drawing.Size(93, 17);
             this.lblFechaHora.TabIndex = 6;
             this.lblFechaHora.Text = "Fecha y Hora";
             // 
@@ -58,10 +59,10 @@
             // 
             this.lblPerfil.AutoSize = true;
             this.lblPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPerfil.Location = new System.Drawing.Point(32, 96);
-            this.lblPerfil.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPerfil.Location = new System.Drawing.Point(16, 50);
+            this.lblPerfil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPerfil.Name = "lblPerfil";
-            this.lblPerfil.Size = new System.Drawing.Size(76, 31);
+            this.lblPerfil.Size = new System.Drawing.Size(40, 17);
             this.lblPerfil.TabIndex = 5;
             this.lblPerfil.Text = "Perfil";
             // 
@@ -69,10 +70,10 @@
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(32, 33);
-            this.lblUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsuario.Location = new System.Drawing.Point(16, 17);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(108, 31);
+            this.lblUsuario.Size = new System.Drawing.Size(57, 17);
             this.lblUsuario.TabIndex = 4;
             this.lblUsuario.Text = "Usuario";
             // 
@@ -81,20 +82,20 @@
             this.lblSeleccionar.AutoSize = true;
             this.lblSeleccionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSeleccionar.ForeColor = System.Drawing.Color.MediumPurple;
-            this.lblSeleccionar.Location = new System.Drawing.Point(34, 262);
-            this.lblSeleccionar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSeleccionar.Location = new System.Drawing.Point(17, 136);
+            this.lblSeleccionar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSeleccionar.Name = "lblSeleccionar";
-            this.lblSeleccionar.Size = new System.Drawing.Size(572, 33);
+            this.lblSeleccionar.Size = new System.Drawing.Size(309, 18);
             this.lblSeleccionar.TabIndex = 7;
             this.lblSeleccionar.Text = "Seleccione la operación que desee ver: ";
             // 
             // btnPrincipal
             // 
             this.btnPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrincipal.Location = new System.Drawing.Point(466, 63);
-            this.btnPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPrincipal.Location = new System.Drawing.Point(233, 33);
+            this.btnPrincipal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPrincipal.Name = "btnPrincipal";
-            this.btnPrincipal.Size = new System.Drawing.Size(160, 87);
+            this.btnPrincipal.Size = new System.Drawing.Size(80, 45);
             this.btnPrincipal.TabIndex = 8;
             this.btnPrincipal.Text = "Ver principal";
             this.btnPrincipal.UseVisualStyleBackColor = true;
@@ -103,10 +104,10 @@
             // btnRRHH
             // 
             this.btnRRHH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRRHH.Location = new System.Drawing.Point(132, 242);
-            this.btnRRHH.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRRHH.Location = new System.Drawing.Point(66, 126);
+            this.btnRRHH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRRHH.Name = "btnRRHH";
-            this.btnRRHH.Size = new System.Drawing.Size(160, 87);
+            this.btnRRHH.Size = new System.Drawing.Size(80, 45);
             this.btnRRHH.TabIndex = 9;
             this.btnRRHH.Text = "Ver RRHH";
             this.btnRRHH.UseVisualStyleBackColor = true;
@@ -118,11 +119,11 @@
             this.groupBox1.Controls.Add(this.btnAuditoria);
             this.groupBox1.Controls.Add(this.btnRRHH);
             this.groupBox1.Controls.Add(this.btnPrincipal);
-            this.groupBox1.Location = new System.Drawing.Point(40, 308);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(20, 160);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(716, 377);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(358, 196);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operaciones";
@@ -130,10 +131,10 @@
             // btnEliminarUsuario
             // 
             this.btnEliminarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarUsuario.Location = new System.Drawing.Point(132, 63);
-            this.btnEliminarUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminarUsuario.Location = new System.Drawing.Point(66, 33);
+            this.btnEliminarUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEliminarUsuario.Name = "btnEliminarUsuario";
-            this.btnEliminarUsuario.Size = new System.Drawing.Size(160, 87);
+            this.btnEliminarUsuario.Size = new System.Drawing.Size(80, 45);
             this.btnEliminarUsuario.TabIndex = 11;
             this.btnEliminarUsuario.Text = "Eliminar Usuario";
             this.btnEliminarUsuario.UseVisualStyleBackColor = true;
@@ -142,10 +143,10 @@
             // btnAuditoria
             // 
             this.btnAuditoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAuditoria.Location = new System.Drawing.Point(466, 242);
-            this.btnAuditoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAuditoria.Location = new System.Drawing.Point(233, 126);
+            this.btnAuditoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAuditoria.Name = "btnAuditoria";
-            this.btnAuditoria.Size = new System.Drawing.Size(160, 87);
+            this.btnAuditoria.Size = new System.Drawing.Size(80, 45);
             this.btnAuditoria.TabIndex = 10;
             this.btnAuditoria.Text = "Ver auditoría";
             this.btnAuditoria.UseVisualStyleBackColor = true;
@@ -156,30 +157,31 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblEstado});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 757);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 393);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(794, 42);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 7, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(397, 22);
             this.statusStrip1.TabIndex = 11;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // lblEstado
             // 
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(230, 32);
+            this.lblEstado.Size = new System.Drawing.Size(113, 17);
             this.lblEstado.Text = "Estado Conexión BD";
             // 
             // frmAdministrador
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 799);
+            this.ClientSize = new System.Drawing.Size(397, 415);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblSeleccionar);
             this.Controls.Add(this.lblFechaHora);
             this.Controls.Add(this.lblPerfil);
             this.Controls.Add(this.lblUsuario);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAdministrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrador";

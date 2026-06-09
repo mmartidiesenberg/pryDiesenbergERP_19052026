@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEliminarUsuario));
             this.gbEliminar = new System.Windows.Forms.GroupBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -110,7 +111,9 @@
             this.ClientSize = new System.Drawing.Size(642, 257);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.gbEliminar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmEliminarUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Eliminar Usuario";
             this.Load += new System.EventHandler(this.frmEliminarUsuario_Load);
             this.gbEliminar.ResumeLayout(false);

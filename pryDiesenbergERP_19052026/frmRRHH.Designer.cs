@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRRHH));
             this.gbDatos = new System.Windows.Forms.GroupBox();
             this.cmbPerfil = new System.Windows.Forms.ComboBox();
             this.lblPerfil = new System.Windows.Forms.Label();
@@ -53,6 +54,7 @@
             this.btnVolverAdmin = new System.Windows.Forms.Button();
             this.btnEliminarUsuario = new System.Windows.Forms.Button();
             this.gbContacto = new System.Windows.Forms.GroupBox();
+            this.lstTelefonos = new System.Windows.Forms.ListBox();
             this.btnAgregarTelefonos = new System.Windows.Forms.Button();
             this.txtGmail = new System.Windows.Forms.TextBox();
             this.mskTelefono = new System.Windows.Forms.MaskedTextBox();
@@ -62,7 +64,6 @@
             this.lblMail = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblEstado = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lstTelefonos = new System.Windows.Forms.ListBox();
             this.gbDatos.SuspendLayout();
             this.gbDomicilio.SuspendLayout();
             this.gbContacto.SuspendLayout();
@@ -348,6 +349,16 @@
             this.gbContacto.TabStop = false;
             this.gbContacto.Text = "Contacto y Creación de Usuario";
             // 
+            // lstTelefonos
+            // 
+            this.lstTelefonos.FormattingEnabled = true;
+            this.lstTelefonos.ItemHeight = 16;
+            this.lstTelefonos.Location = new System.Drawing.Point(376, 79);
+            this.lstTelefonos.Name = "lstTelefonos";
+            this.lstTelefonos.Size = new System.Drawing.Size(201, 164);
+            this.lstTelefonos.TabIndex = 56;
+            this.lstTelefonos.SelectedIndexChanged += new System.EventHandler(this.lstTelefonos_SelectedIndexChanged);
+            // 
             // btnAgregarTelefonos
             // 
             this.btnAgregarTelefonos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -438,16 +449,6 @@
             this.lblEstado.Size = new System.Drawing.Size(113, 17);
             this.lblEstado.Text = "Estado Conexión BD";
             // 
-            // lstTelefonos
-            // 
-            this.lstTelefonos.FormattingEnabled = true;
-            this.lstTelefonos.ItemHeight = 16;
-            this.lstTelefonos.Location = new System.Drawing.Point(376, 79);
-            this.lstTelefonos.Name = "lstTelefonos";
-            this.lstTelefonos.Size = new System.Drawing.Size(201, 164);
-            this.lstTelefonos.TabIndex = 56;
-            this.lstTelefonos.SelectedIndexChanged += new System.EventHandler(this.lstTelefonos_SelectedIndexChanged);
-            // 
             // frmRRHH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -460,6 +461,7 @@
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.gbDomicilio);
             this.Controls.Add(this.gbDatos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRRHH";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RRHH";
