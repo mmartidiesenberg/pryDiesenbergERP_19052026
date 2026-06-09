@@ -64,6 +64,7 @@
             this.lblMail = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblEstado = new System.Windows.Forms.ToolStripStatusLabel();
+            this.chkVer = new System.Windows.Forms.CheckBox();
             this.gbDatos.SuspendLayout();
             this.gbDomicilio.SuspendLayout();
             this.gbContacto.SuspendLayout();
@@ -328,6 +329,7 @@
             // 
             // gbContacto
             // 
+            this.gbContacto.Controls.Add(this.chkVer);
             this.gbContacto.Controls.Add(this.lstTelefonos);
             this.gbContacto.Controls.Add(this.btnAgregarTelefonos);
             this.gbContacto.Controls.Add(this.lblContrasenia);
@@ -344,7 +346,7 @@
             this.gbContacto.Margin = new System.Windows.Forms.Padding(2);
             this.gbContacto.Name = "gbContacto";
             this.gbContacto.Padding = new System.Windows.Forms.Padding(2);
-            this.gbContacto.Size = new System.Drawing.Size(626, 289);
+            this.gbContacto.Size = new System.Drawing.Size(650, 289);
             this.gbContacto.TabIndex = 53;
             this.gbContacto.TabStop = false;
             this.gbContacto.Text = "Contacto y Creación de Usuario";
@@ -354,7 +356,7 @@
             // 
             this.lstTelefonos.FormattingEnabled = true;
             this.lstTelefonos.ItemHeight = 16;
-            this.lstTelefonos.Location = new System.Drawing.Point(376, 79);
+            this.lstTelefonos.Location = new System.Drawing.Point(437, 60);
             this.lstTelefonos.Name = "lstTelefonos";
             this.lstTelefonos.Size = new System.Drawing.Size(201, 164);
             this.lstTelefonos.TabIndex = 56;
@@ -363,7 +365,7 @@
             // btnAgregarTelefonos
             // 
             this.btnAgregarTelefonos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarTelefonos.Location = new System.Drawing.Point(376, 38);
+            this.btnAgregarTelefonos.Location = new System.Drawing.Point(437, 19);
             this.btnAgregarTelefonos.Name = "btnAgregarTelefonos";
             this.btnAgregarTelefonos.Size = new System.Drawing.Size(105, 35);
             this.btnAgregarTelefonos.TabIndex = 57;
@@ -450,6 +452,17 @@
             this.lblEstado.Size = new System.Drawing.Size(113, 17);
             this.lblEstado.Text = "Estado Conexión BD";
             // 
+            // chkVer
+            // 
+            this.chkVer.AutoSize = true;
+            this.chkVer.Location = new System.Drawing.Point(354, 99);
+            this.chkVer.Name = "chkVer";
+            this.chkVer.Size = new System.Drawing.Size(49, 21);
+            this.chkVer.TabIndex = 58;
+            this.chkVer.Text = "Ver";
+            this.chkVer.UseVisualStyleBackColor = true;
+            this.chkVer.CheckedChanged += new System.EventHandler(this.chkVer_CheckedChanged);
+            // 
             // frmRRHH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -519,5 +532,6 @@
         private System.Windows.Forms.Button btnAgregarDireccion;
         private System.Windows.Forms.Button btnAgregarTelefonos;
         private System.Windows.Forms.ListBox lstTelefonos;
+        private System.Windows.Forms.CheckBox chkVer;
     }
 }

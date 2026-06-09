@@ -22,7 +22,7 @@ namespace pryDiesenbergERP_19052026
 
         private void frmInicioSesion_Load(object sender, EventArgs e)
         {
-            
+            txtContrasenia.PasswordChar = '•';
         }
 
         public void ClearFields()
@@ -88,6 +88,11 @@ namespace pryDiesenbergERP_19052026
             {
                 MessageBox.Show("Error: " + clsConexion.ConexionBD.error);
             }
+        }
+
+        private void chkVer_CheckedChanged(object sender, EventArgs e)
+        {
+            txtContrasenia.PasswordChar = chkVer.Checked ? '\0' : '•';
         }
     }
 }

@@ -36,6 +36,7 @@
             this.btnIngresar = new System.Windows.Forms.Button();
             this.gbInicio = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.chkVer = new System.Windows.Forms.CheckBox();
             this.gbInicio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -73,9 +74,9 @@
             this.txtContrasenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContrasenia.Location = new System.Drawing.Point(303, 204);
             this.txtContrasenia.Name = "txtContrasenia";
-            this.txtContrasenia.PasswordChar = '*';
             this.txtContrasenia.Size = new System.Drawing.Size(140, 22);
             this.txtContrasenia.TabIndex = 3;
+            this.txtContrasenia.UseSystemPasswordChar = true;
             // 
             // btnIngresar
             // 
@@ -90,6 +91,7 @@
             // 
             // gbInicio
             // 
+            this.gbInicio.Controls.Add(this.chkVer);
             this.gbInicio.Controls.Add(this.pictureBox1);
             this.gbInicio.Controls.Add(this.btnIngresar);
             this.gbInicio.Controls.Add(this.lblUsuario);
@@ -99,7 +101,7 @@
             this.gbInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbInicio.Location = new System.Drawing.Point(12, 12);
             this.gbInicio.Name = "gbInicio";
-            this.gbInicio.Size = new System.Drawing.Size(483, 328);
+            this.gbInicio.Size = new System.Drawing.Size(518, 328);
             this.gbInicio.TabIndex = 5;
             this.gbInicio.TabStop = false;
             this.gbInicio.Text = "Iniciar Sesión";
@@ -114,13 +116,24 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
+            // chkVer
+            // 
+            this.chkVer.AutoSize = true;
+            this.chkVer.Location = new System.Drawing.Point(463, 202);
+            this.chkVer.Name = "chkVer";
+            this.chkVer.Size = new System.Drawing.Size(49, 22);
+            this.chkVer.TabIndex = 59;
+            this.chkVer.Text = "Ver";
+            this.chkVer.UseVisualStyleBackColor = true;
+            this.chkVer.CheckedChanged += new System.EventHandler(this.chkVer_CheckedChanged);
+            // 
             // frmInicioSesion
             // 
             this.AcceptButton = this.btnIngresar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
-            this.ClientSize = new System.Drawing.Size(512, 352);
+            this.ClientSize = new System.Drawing.Size(542, 352);
             this.Controls.Add(this.gbInicio);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmInicioSesion";
@@ -143,5 +156,6 @@
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.GroupBox gbInicio;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckBox chkVer;
     }
 }
