@@ -75,9 +75,9 @@
             this.gbDatos.Controls.Add(this.lblNombre);
             this.gbDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDatos.Location = new System.Drawing.Point(42, 23);
-            this.gbDatos.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gbDatos.Margin = new System.Windows.Forms.Padding(6);
             this.gbDatos.Name = "gbDatos";
-            this.gbDatos.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gbDatos.Padding = new System.Windows.Forms.Padding(6);
             this.gbDatos.Size = new System.Drawing.Size(530, 460);
             this.gbDatos.TabIndex = 0;
             this.gbDatos.TabStop = false;
@@ -99,7 +99,7 @@
             "Analista",
             "Supervisor"});
             this.cmbPerfil.Location = new System.Drawing.Point(276, 365);
-            this.cmbPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.cmbPerfil.Name = "cmbPerfil";
             this.cmbPerfil.Size = new System.Drawing.Size(196, 39);
             this.cmbPerfil.TabIndex = 3;
@@ -118,7 +118,7 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(276, 265);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(6);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(196, 38);
             this.txtNombre.TabIndex = 10;
@@ -126,7 +126,7 @@
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(276, 171);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(6);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(196, 38);
             this.txtApellido.TabIndex = 9;
@@ -134,7 +134,7 @@
             // txtDNI
             // 
             this.txtDNI.Location = new System.Drawing.Point(276, 73);
-            this.txtDNI.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtDNI.Margin = new System.Windows.Forms.Padding(6);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(196, 38);
             this.txtDNI.TabIndex = 8;
@@ -180,9 +180,9 @@
             this.gbDomicilio.Controls.Add(this.lblDireccion);
             this.gbDomicilio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDomicilio.Location = new System.Drawing.Point(636, 23);
-            this.gbDomicilio.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gbDomicilio.Margin = new System.Windows.Forms.Padding(6);
             this.gbDomicilio.Name = "gbDomicilio";
-            this.gbDomicilio.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.gbDomicilio.Padding = new System.Windows.Forms.Padding(6);
             this.gbDomicilio.Size = new System.Drawing.Size(530, 421);
             this.gbDomicilio.TabIndex = 1;
             this.gbDomicilio.TabStop = false;
@@ -193,7 +193,7 @@
             this.cmbProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProvincia.FormattingEnabled = true;
             this.cmbProvincia.Location = new System.Drawing.Point(276, 342);
-            this.cmbProvincia.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbProvincia.Margin = new System.Windows.Forms.Padding(6);
             this.cmbProvincia.Name = "cmbProvincia";
             this.cmbProvincia.Size = new System.Drawing.Size(196, 39);
             this.cmbProvincia.TabIndex = 14;
@@ -203,7 +203,7 @@
             this.cmbLocalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLocalidad.FormattingEnabled = true;
             this.cmbLocalidad.Location = new System.Drawing.Point(276, 198);
-            this.cmbLocalidad.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cmbLocalidad.Margin = new System.Windows.Forms.Padding(6);
             this.cmbLocalidad.Name = "cmbLocalidad";
             this.cmbLocalidad.Size = new System.Drawing.Size(196, 39);
             this.cmbLocalidad.TabIndex = 13;
@@ -211,7 +211,7 @@
             // txtDireccion
             // 
             this.txtDireccion.Location = new System.Drawing.Point(276, 73);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(6);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(196, 38);
             this.txtDireccion.TabIndex = 11;
@@ -250,8 +250,8 @@
             // 
             this.chkActivo.AutoSize = true;
             this.chkActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkActivo.Location = new System.Drawing.Point(536, 444);
-            this.chkActivo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkActivo.Location = new System.Drawing.Point(541, 420);
+            this.chkActivo.Margin = new System.Windows.Forms.Padding(4);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(121, 35);
             this.chkActivo.TabIndex = 54;
@@ -261,7 +261,7 @@
             // txtContrasenia
             // 
             this.txtContrasenia.Location = new System.Drawing.Point(308, 138);
-            this.txtContrasenia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtContrasenia.Margin = new System.Windows.Forms.Padding(4);
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.Size = new System.Drawing.Size(354, 38);
             this.txtContrasenia.TabIndex = 5;
@@ -281,8 +281,8 @@
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(972, 465);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregar.Location = new System.Drawing.Point(1778, 556);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(196, 52);
             this.btnAgregar.TabIndex = 2;
@@ -292,8 +292,8 @@
             // 
             // btnVolverAdmin
             // 
-            this.btnVolverAdmin.Location = new System.Drawing.Point(886, 956);
-            this.btnVolverAdmin.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnVolverAdmin.Location = new System.Drawing.Point(886, 694);
+            this.btnVolverAdmin.Margin = new System.Windows.Forms.Padding(6);
             this.btnVolverAdmin.Name = "btnVolverAdmin";
             this.btnVolverAdmin.Size = new System.Drawing.Size(280, 44);
             this.btnVolverAdmin.TabIndex = 50;
@@ -304,8 +304,8 @@
             // btnEliminarUsuario
             // 
             this.btnEliminarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarUsuario.Location = new System.Drawing.Point(1006, 754);
-            this.btnEliminarUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminarUsuario.Location = new System.Drawing.Point(318, 556);
+            this.btnEliminarUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminarUsuario.Name = "btnEliminarUsuario";
             this.btnEliminarUsuario.Size = new System.Drawing.Size(160, 87);
             this.btnEliminarUsuario.TabIndex = 51;
@@ -316,7 +316,7 @@
             // lblEliminarUsuario
             // 
             this.lblEliminarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEliminarUsuario.Location = new System.Drawing.Point(880, 652);
+            this.lblEliminarUsuario.Location = new System.Drawing.Point(28, 545);
             this.lblEliminarUsuario.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblEliminarUsuario.Name = "lblEliminarUsuario";
             this.lblEliminarUsuario.Size = new System.Drawing.Size(232, 98);
@@ -335,10 +335,10 @@
             this.gbContacto.Controls.Add(this.lblTelefono);
             this.gbContacto.Controls.Add(this.lblMail);
             this.gbContacto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbContacto.Location = new System.Drawing.Point(42, 492);
-            this.gbContacto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbContacto.Location = new System.Drawing.Point(1220, 25);
+            this.gbContacto.Margin = new System.Windows.Forms.Padding(4);
             this.gbContacto.Name = "gbContacto";
-            this.gbContacto.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbContacto.Padding = new System.Windows.Forms.Padding(4);
             this.gbContacto.Size = new System.Drawing.Size(754, 492);
             this.gbContacto.TabIndex = 53;
             this.gbContacto.TabStop = false;
@@ -347,7 +347,7 @@
             // txtGmail
             // 
             this.txtGmail.Location = new System.Drawing.Point(336, 48);
-            this.txtGmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtGmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtGmail.Name = "txtGmail";
             this.txtGmail.Size = new System.Drawing.Size(326, 38);
             this.txtGmail.TabIndex = 4;
@@ -355,10 +355,11 @@
             // mskTelefono
             // 
             this.mskTelefono.Location = new System.Drawing.Point(390, 231);
-            this.mskTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mskTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.mskTelefono.Name = "mskTelefono";
             this.mskTelefono.Size = new System.Drawing.Size(272, 38);
             this.mskTelefono.TabIndex = 7;
+            this.mskTelefono.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskTelefono_MaskInputRejected);
             // 
             // cmbRedes
             // 
@@ -370,7 +371,7 @@
             "Twitter",
             "Tik Tok"});
             this.cmbRedes.Location = new System.Drawing.Point(390, 337);
-            this.cmbRedes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbRedes.Margin = new System.Windows.Forms.Padding(4);
             this.cmbRedes.Name = "cmbRedes";
             this.cmbRedes.Size = new System.Drawing.Size(272, 39);
             this.cmbRedes.TabIndex = 6;
@@ -409,7 +410,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1228, 1006);
+            this.ClientSize = new System.Drawing.Size(2035, 818);
             this.Controls.Add(this.gbContacto);
             this.Controls.Add(this.lblEliminarUsuario);
             this.Controls.Add(this.btnEliminarUsuario);
@@ -417,7 +418,7 @@
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.gbDomicilio);
             this.Controls.Add(this.gbDatos);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmRRHH";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RRHH";

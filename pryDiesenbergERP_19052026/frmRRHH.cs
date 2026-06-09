@@ -24,8 +24,7 @@ namespace pryDiesenbergERP_19052026
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (clsConexion.ConexionBD.conexion == null ||
-        clsConexion.ConexionBD.conexion.State == System.Data.ConnectionState.Closed)
+            if (clsConexion.ConexionBD.conexion == null || clsConexion.ConexionBD.conexion.State == System.Data.ConnectionState.Closed)
             {
                 clsConexion.ConexionBD.Conectar();
             }
@@ -242,6 +241,11 @@ namespace pryDiesenbergERP_19052026
         }
 
         private void txtContrasenia_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mskTelefono_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }

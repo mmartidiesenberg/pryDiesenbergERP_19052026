@@ -26,10 +26,21 @@ namespace pryDiesenbergERP_19052026
         {
             if (clsConexion.ConexionBD.Conectar())
             {
-           
+                
+                lblEstado.Text = "Base de datos conectada";
+                lblEstado.ForeColor = Color.Green;
                 lblUsuario.Text = nombreUsuario;
                 lblPerfil.Text = rolUsuario;
                 lblFechaHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+
+                  
+            }
+            else
+            {
+                    lblEstado.Text = "No se pudo conectar la base de datos";
+                    lblEstado.ForeColor = Color.Red;
+                    MessageBox.Show(clsConexion.ConexionBD.error);
+ 
             }
         }
 

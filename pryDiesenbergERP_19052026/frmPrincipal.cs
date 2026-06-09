@@ -276,5 +276,10 @@ namespace pryDiesenbergERP_19052026
                 admin.Activate();
             }
         }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
