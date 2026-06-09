@@ -89,10 +89,5 @@ namespace pryDiesenbergERP_19052026
                 MessageBox.Show("Error: " + clsConexion.ConexionBD.error);
             }
         }
-
-        private void gbInicio_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 }
