@@ -35,6 +35,7 @@
             this.cmbUsuario = new System.Windows.Forms.ComboBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblEstado = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnVolverAdmin = new System.Windows.Forms.Button();
             this.gbEliminar.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -45,7 +46,7 @@
             this.gbEliminar.Controls.Add(this.label1);
             this.gbEliminar.Controls.Add(this.cmbUsuario);
             this.gbEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbEliminar.Location = new System.Drawing.Point(22, 55);
+            this.gbEliminar.Location = new System.Drawing.Point(27, 32);
             this.gbEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.gbEliminar.Name = "gbEliminar";
             this.gbEliminar.Padding = new System.Windows.Forms.Padding(2);
@@ -96,7 +97,6 @@
             this.statusStrip1.Size = new System.Drawing.Size(642, 22);
             this.statusStrip1.TabIndex = 9;
             this.statusStrip1.Text = "statusStrip1";
-            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
             // 
             // lblEstado
             // 
@@ -104,12 +104,23 @@
             this.lblEstado.Size = new System.Drawing.Size(113, 17);
             this.lblEstado.Text = "Estado Conexión BD";
             // 
+            // btnVolverAdmin
+            // 
+            this.btnVolverAdmin.Location = new System.Drawing.Point(27, 195);
+            this.btnVolverAdmin.Name = "btnVolverAdmin";
+            this.btnVolverAdmin.Size = new System.Drawing.Size(150, 24);
+            this.btnVolverAdmin.TabIndex = 10;
+            this.btnVolverAdmin.Text = "Volver a Administrador";
+            this.btnVolverAdmin.UseVisualStyleBackColor = true;
+            this.btnVolverAdmin.Click += new System.EventHandler(this.btnVolverAdmin_Click);
+            // 
             // frmEliminarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lavender;
             this.ClientSize = new System.Drawing.Size(642, 257);
+            this.Controls.Add(this.btnVolverAdmin);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.gbEliminar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -134,5 +145,6 @@
         private System.Windows.Forms.ComboBox cmbUsuario;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblEstado;
+        private System.Windows.Forms.Button btnVolverAdmin;
     }
 }

@@ -124,9 +124,30 @@ namespace pryDiesenbergERP_19052026
             }
         }
 
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void btnVolverAdmin_Click(object sender, EventArgs e)
         {
+            Form adminForm = null;
+            foreach (Form open in Application.OpenForms)
+            {
+                if (open is frmAdministrador)
+                {
+                    adminForm = open;
+                    break;
+                }
+            }
 
+            if (adminForm != null)
+            {
+                adminForm.Show();
+                adminForm.BringToFront();
+            }
+            else
+            {
+                frmAdministrador admin = new frmAdministrador("Administrador", "Administrador");
+                admin.Show();
+            }
+
+            this.Close();
         }
     }
 }
