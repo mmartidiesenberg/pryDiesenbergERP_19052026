@@ -45,8 +45,10 @@
             this.lblIngUsuario = new System.Windows.Forms.Label();
             this.lblIngPerfil = new System.Windows.Forms.Label();
             this.lblIngFechaHora = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -55,9 +57,9 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.lblEstado});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 617);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 692);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(607, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1201, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "Estado Conexión BD";
             // 
@@ -77,7 +79,7 @@
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(330, 169);
+            this.lblUsuario.Location = new System.Drawing.Point(741, 425);
             this.lblUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(57, 17);
@@ -88,7 +90,7 @@
             // 
             this.lblPerfil.AutoSize = true;
             this.lblPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPerfil.Location = new System.Drawing.Point(330, 235);
+            this.lblPerfil.Location = new System.Drawing.Point(741, 491);
             this.lblPerfil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPerfil.Name = "lblPerfil";
             this.lblPerfil.Size = new System.Drawing.Size(40, 17);
@@ -99,7 +101,7 @@
             // 
             this.lblFechaHora.AutoSize = true;
             this.lblFechaHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaHora.Location = new System.Drawing.Point(330, 295);
+            this.lblFechaHora.Location = new System.Drawing.Point(741, 551);
             this.lblFechaHora.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFechaHora.Name = "lblFechaHora";
             this.lblFechaHora.Size = new System.Drawing.Size(93, 17);
@@ -108,7 +110,7 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(252, 524);
+            this.btnVolver.Location = new System.Drawing.Point(638, 640);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(101, 39);
             this.btnVolver.TabIndex = 4;
@@ -118,7 +120,7 @@
             // 
             // btnVolverAdmin
             // 
-            this.btnVolverAdmin.Location = new System.Drawing.Point(243, 523);
+            this.btnVolverAdmin.Location = new System.Drawing.Point(629, 639);
             this.btnVolverAdmin.Name = "btnVolverAdmin";
             this.btnVolverAdmin.Size = new System.Drawing.Size(127, 40);
             this.btnVolverAdmin.TabIndex = 5;
@@ -133,7 +135,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.toolStrip1.Size = new System.Drawing.Size(607, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1201, 25);
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -172,7 +174,7 @@
             // 
             this.lblIngUsuario.AutoSize = true;
             this.lblIngUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIngUsuario.Location = new System.Drawing.Point(96, 168);
+            this.lblIngUsuario.Location = new System.Drawing.Point(507, 425);
             this.lblIngUsuario.Name = "lblIngUsuario";
             this.lblIngUsuario.Size = new System.Drawing.Size(72, 18);
             this.lblIngUsuario.TabIndex = 7;
@@ -183,7 +185,7 @@
             // 
             this.lblIngPerfil.AutoSize = true;
             this.lblIngPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIngPerfil.Location = new System.Drawing.Point(96, 235);
+            this.lblIngPerfil.Location = new System.Drawing.Point(507, 491);
             this.lblIngPerfil.Name = "lblIngPerfil";
             this.lblIngPerfil.Size = new System.Drawing.Size(52, 18);
             this.lblIngPerfil.TabIndex = 8;
@@ -194,18 +196,29 @@
             // 
             this.lblIngFechaHora.AutoSize = true;
             this.lblIngFechaHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIngFechaHora.Location = new System.Drawing.Point(96, 295);
+            this.lblIngFechaHora.Location = new System.Drawing.Point(507, 551);
             this.lblIngFechaHora.Name = "lblIngFechaHora";
-            this.lblIngFechaHora.Size = new System.Drawing.Size(218, 18);
+            this.lblIngFechaHora.Size = new System.Drawing.Size(198, 18);
             this.lblIngFechaHora.TabIndex = 9;
-            this.lblIngFechaHora.Text = "Fecha y Horario de Ingreso:";
+            this.lblIngFechaHora.Text = "Fecha y Hora de Ingreso:";
             this.lblIngFechaHora.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::pryDiesenbergERP_19052026.Properties.Resources.network_enterprise_business_shopping_1731;
+            this.pictureBox1.Location = new System.Drawing.Point(508, 130);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(363, 261);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 639);
+            this.ClientSize = new System.Drawing.Size(1201, 714);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblIngFechaHora);
             this.Controls.Add(this.lblIngPerfil);
             this.Controls.Add(this.lblIngUsuario);
@@ -220,11 +233,13 @@
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal ERP";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,6 +263,7 @@
         private System.Windows.Forms.Label lblIngUsuario;
         private System.Windows.Forms.Label lblIngPerfil;
         private System.Windows.Forms.Label lblIngFechaHora;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

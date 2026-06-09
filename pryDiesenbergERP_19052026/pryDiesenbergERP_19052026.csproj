@@ -136,6 +136,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="database_storage_server_connection_icon_190646.ico" />
+    <None Include="Resources\network_enterprise_business_shopping_1731.png" />
+    <None Include="Resources\301172_user-profile-icon1.png" />
     <None Include="Resources\301172_user-profile-icon.png" />
     <None Include="Resources\ChatGPT Image 9 jun 2026, 09_24_47 a.m..png" />
   </ItemGroup>

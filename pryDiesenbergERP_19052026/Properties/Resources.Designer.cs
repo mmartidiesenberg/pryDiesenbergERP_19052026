@@ -73,9 +73,29 @@ namespace pryDiesenbergERP_19052026.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _301172_user_profile_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("301172_user-profile-icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ChatGPT_Image_9_jun_2026__09_24_47_a_m_ {
             get {
                 object obj = ResourceManager.GetObject("ChatGPT Image 9 jun 2026, 09_24_47 a.m.", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap network_enterprise_business_shopping_1731 {
+            get {
+                object obj = ResourceManager.GetObject("network_enterprise_business_shopping_1731", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
