@@ -356,5 +356,10 @@ namespace pryDiesenbergERP_19052026
         {
 
         }
+
+        private void gbContacto_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

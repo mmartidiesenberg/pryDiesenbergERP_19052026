@@ -265,7 +265,7 @@
             // 
             this.chkActivo.AutoSize = true;
             this.chkActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkActivo.Location = new System.Drawing.Point(286, 272);
+            this.chkActivo.Location = new System.Drawing.Point(286, 243);
             this.chkActivo.Margin = new System.Windows.Forms.Padding(2);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(65, 21);
@@ -275,7 +275,7 @@
             // 
             // txtContrasenia
             // 
-            this.txtContrasenia.Location = new System.Drawing.Point(170, 126);
+            this.txtContrasenia.Location = new System.Drawing.Point(170, 97);
             this.txtContrasenia.Margin = new System.Windows.Forms.Padding(2);
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.Size = new System.Drawing.Size(179, 23);
@@ -285,7 +285,7 @@
             // lblContrasenia
             // 
             this.lblContrasenia.AutoSize = true;
-            this.lblContrasenia.Location = new System.Drawing.Point(27, 132);
+            this.lblContrasenia.Location = new System.Drawing.Point(27, 103);
             this.lblContrasenia.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblContrasenia.Name = "lblContrasenia";
             this.lblContrasenia.Size = new System.Drawing.Size(81, 17);
@@ -295,7 +295,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(728, 382);
+            this.btnAgregar.Location = new System.Drawing.Point(688, 353);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(2);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(116, 42);
@@ -306,7 +306,7 @@
             // 
             // btnVolverAdmin
             // 
-            this.btnVolverAdmin.Location = new System.Drawing.Point(12, 596);
+            this.btnVolverAdmin.Location = new System.Drawing.Point(21, 565);
             this.btnVolverAdmin.Name = "btnVolverAdmin";
             this.btnVolverAdmin.Size = new System.Drawing.Size(140, 23);
             this.btnVolverAdmin.TabIndex = 50;
@@ -317,7 +317,7 @@
             // btnEliminarUsuario
             // 
             this.btnEliminarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarUsuario.Location = new System.Drawing.Point(728, 467);
+            this.btnEliminarUsuario.Location = new System.Drawing.Point(688, 438);
             this.btnEliminarUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminarUsuario.Name = "btnEliminarUsuario";
             this.btnEliminarUsuario.Size = new System.Drawing.Size(116, 42);
@@ -344,10 +344,11 @@
             this.gbContacto.Margin = new System.Windows.Forms.Padding(2);
             this.gbContacto.Name = "gbContacto";
             this.gbContacto.Padding = new System.Windows.Forms.Padding(2);
-            this.gbContacto.Size = new System.Drawing.Size(684, 302);
+            this.gbContacto.Size = new System.Drawing.Size(626, 289);
             this.gbContacto.TabIndex = 53;
             this.gbContacto.TabStop = false;
             this.gbContacto.Text = "Contacto y Creación de Usuario";
+            this.gbContacto.Enter += new System.EventHandler(this.gbContacto_Enter);
             // 
             // lstTelefonos
             // 
@@ -372,7 +373,7 @@
             // 
             // txtGmail
             // 
-            this.txtGmail.Location = new System.Drawing.Point(184, 79);
+            this.txtGmail.Location = new System.Drawing.Point(184, 50);
             this.txtGmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtGmail.Name = "txtGmail";
             this.txtGmail.Size = new System.Drawing.Size(165, 23);
@@ -380,7 +381,7 @@
             // 
             // mskTelefono
             // 
-            this.mskTelefono.Location = new System.Drawing.Point(211, 174);
+            this.mskTelefono.Location = new System.Drawing.Point(211, 145);
             this.mskTelefono.Margin = new System.Windows.Forms.Padding(2);
             this.mskTelefono.Name = "mskTelefono";
             this.mskTelefono.Size = new System.Drawing.Size(138, 23);
@@ -395,7 +396,7 @@
             "Instagram",
             "Twitter",
             "Tik Tok"});
-            this.cmbRedes.Location = new System.Drawing.Point(211, 229);
+            this.cmbRedes.Location = new System.Drawing.Point(211, 200);
             this.cmbRedes.Margin = new System.Windows.Forms.Padding(2);
             this.cmbRedes.Name = "cmbRedes";
             this.cmbRedes.Size = new System.Drawing.Size(138, 24);
@@ -404,7 +405,7 @@
             // lblRedes
             // 
             this.lblRedes.AutoSize = true;
-            this.lblRedes.Location = new System.Drawing.Point(26, 236);
+            this.lblRedes.Location = new System.Drawing.Point(26, 207);
             this.lblRedes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRedes.Name = "lblRedes";
             this.lblRedes.Size = new System.Drawing.Size(106, 17);
@@ -414,7 +415,7 @@
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(27, 180);
+            this.lblTelefono.Location = new System.Drawing.Point(27, 151);
             this.lblTelefono.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(64, 17);
@@ -424,7 +425,7 @@
             // lblMail
             // 
             this.lblMail.AutoSize = true;
-            this.lblMail.Location = new System.Drawing.Point(27, 82);
+            this.lblMail.Location = new System.Drawing.Point(27, 53);
             this.lblMail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMail.Name = "lblMail";
             this.lblMail.Size = new System.Drawing.Size(33, 17);
@@ -436,10 +437,10 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblEstado});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 622);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 611);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 7, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(855, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(843, 22);
             this.statusStrip1.TabIndex = 54;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -453,7 +454,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(855, 644);
+            this.BackColor = System.Drawing.Color.Lavender;
+            this.ClientSize = new System.Drawing.Size(843, 633);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.gbContacto);
             this.Controls.Add(this.btnEliminarUsuario);
