@@ -14,11 +14,13 @@ namespace pryDiesenbergERP_19052026
     {
         string nombreUsuario;
         string rolUsuario;
+        private System.Windows.Forms.Timer relojTimer;
         public frmAdministrador(string nombre, string perfil)
         {
             InitializeComponent();
             nombreUsuario = nombre;
             rolUsuario = perfil;
+            this.FormClosed += FrmAdministrador_FormClosed;
         }
 
 
@@ -31,7 +33,16 @@ namespace pryDiesenbergERP_19052026
                 lblEstado.ForeColor = Color.Green;
                 lblUsuario.Text = nombreUsuario;
                 lblPerfil.Text = rolUsuario;
-                lblFechaHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+                lblFechaHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+
+// Inicializar y arrancar el timer que actualiza la hora cada segundo
+                if (relojTimer == null)
+                {
+                    relojTimer = new System.Windows.Forms.Timer();
+                    relojTimer.Interval = 1000; // 1 segundo
+                    relojTimer.Tick += RelojTimer_Tick;
+                    relojTimer.Start();
+                }
 
                   
             }
@@ -41,6 +52,30 @@ namespace pryDiesenbergERP_19052026
                     lblEstado.ForeColor = Color.Red;
                     MessageBox.Show(clsConexion.ConexionBD.error);
  
+            }
+        }
+
+        private void RelojTimer_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                lblFechaHora.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            }
+            catch { }
+        }
+
+        private void FrmAdministrador_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (relojTimer != null)
+            {
+                try
+                {
+                    relojTimer.Stop();
+                    relojTimer.Tick -= RelojTimer_Tick;
+                    relojTimer.Dispose();
+                }
+                catch { }
+                relojTimer = null;
             }
         }
 

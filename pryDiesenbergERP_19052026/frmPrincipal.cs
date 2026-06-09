@@ -335,10 +335,5 @@ namespace pryDiesenbergERP_19052026
                 relojTimer = null;
             }
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

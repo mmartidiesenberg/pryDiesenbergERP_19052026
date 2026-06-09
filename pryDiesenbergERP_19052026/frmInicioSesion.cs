@@ -92,7 +92,15 @@ namespace pryDiesenbergERP_19052026
 
         private void chkVer_CheckedChanged(object sender, EventArgs e)
         {
-            txtContrasenia.PasswordChar = chkVer.Checked ? '\0' : '•';
+            if (chkVer.Checked)
+            {
+                txtContrasenia.UseSystemPasswordChar = false;
+                txtContrasenia.PasswordChar = '\0';
+            }
+            else
+            {
+                txtContrasenia.UseSystemPasswordChar = true;
+            }
         }
     }
 }
