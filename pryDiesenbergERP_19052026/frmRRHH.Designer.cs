@@ -192,7 +192,7 @@
             this.btnAgregarDireccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarDireccion.Location = new System.Drawing.Point(271, 19);
             this.btnAgregarDireccion.Name = "btnAgregarDireccion";
-            this.btnAgregarDireccion.Size = new System.Drawing.Size(136, 35);
+            this.btnAgregarDireccion.Size = new System.Drawing.Size(157, 35);
             this.btnAgregarDireccion.TabIndex = 56;
             this.btnAgregarDireccion.Text = "+ Agregar Dirección";
             this.btnAgregarDireccion.UseVisualStyleBackColor = true;
@@ -378,7 +378,7 @@
             this.btnAgregarTelefonos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarTelefonos.Location = new System.Drawing.Point(437, 19);
             this.btnAgregarTelefonos.Name = "btnAgregarTelefonos";
-            this.btnAgregarTelefonos.Size = new System.Drawing.Size(136, 35);
+            this.btnAgregarTelefonos.Size = new System.Drawing.Size(161, 35);
             this.btnAgregarTelefonos.TabIndex = 57;
             this.btnAgregarTelefonos.Text = "+ Agregar Teléfono";
             this.btnAgregarTelefonos.UseVisualStyleBackColor = true;
